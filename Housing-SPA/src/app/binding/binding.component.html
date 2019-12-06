@@ -1,0 +1,48 @@
+<div class="container">
+        <h1>Various type of databinding</h1>
+        
+        <h3>1. String Interpolation</h3>
+        <p><b>Example 1: Below content coming using String Interpolation from our TS file</b></p>
+        <p>My name is {{yourname}}</p>
+        
+        <p><b>Example 2: We can pass info using a variable as well i.e. #myNewName and use it 
+          in string interpollation</b></p>
+        
+        <p>Your New Name
+          <br/>
+        <input type="text" #myNewName (input)="0">
+        <br/>
+        My new name is: {{myNewName.value}}</p>
+        <hr>       
+        
+        
+        <h3>2. Event Binding</h3>
+        <p><b>We can pass the text to our 
+          server code (TS) using event binding and passing the info using event argument. 
+          Then we can set the value of existing property to something else.</b></p>
+        <p>Edit your previous name 
+          <br/>
+          <input type="text" 
+         (input)="onInputChange($event)"> </p>
+         <hr>
+        
+        <h3>3. Property Binding</h3>
+        <p><b>We can use property binding to bind any property defined in Typescript file using square 
+          bracket i.e [value]="yourname". We are setting the value of below input box using property binding</b></p>
+        <p>Edit your previous name 
+          <br/>
+          <input type="text" [value]="yourname"> </p>
+          <hr>
+        
+        
+          <h3>4. Two way Data Binding</h3>
+          <p><b>We can use two way binding to bind any property defined in Typescript file using square 
+            bracket and paranthes inside it and and using ngModel inside that as directive  i.e [(ngMode)]="yourname". 
+            In that way you do not need to do anything at component level and property automatically be updated 
+            on the change of the element under which it is defined</b></p>
+          <p>Edit your previous name 
+            <br/>
+            <input type="text" [(ngModel)]="yourname"> </p>
+</div>
+        
+        
