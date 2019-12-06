@@ -4,11 +4,13 @@ import {FormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { BindingComponent } from './binding/binding.component';
+import { PropertyCardComponent } from './property-card/property-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BindingComponent
+    BindingComponent,
+    PropertyCardComponent
   ],
   imports: [
     BrowserModule, FormsModule
