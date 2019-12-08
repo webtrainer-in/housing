@@ -12,22 +12,25 @@ export class PropertyCardComponent implements OnInit {
   Properties2: Array<any>=[
     {
       "id":1,
-      "Name":"Birla Apartments",
+      "Name":"Birla House",
       "Type":"House",
-      "Price":12000
+      "Price":12000,
+      "image":"duplex-1"
     },
 
     {
       "id":2,
       "Name":"Erose Flat",
-      "Type":"Duplex",
-      "Price":5000
+      "Type":"Aparment",
+      "Price":5000,
+      "image":"apartment-1"
     },
     {
       "id":3,
       "Name":"Gun Hill",
       "Type":"House",
-      "Price":12000
+      "Price":12000,
+      "image":"house-hill-2"
     },
 
     {
@@ -35,7 +38,7 @@ export class PropertyCardComponent implements OnInit {
       "Name":"Macro Home",
       "Type":"Duplex",
       "Price":5000,
-      "image":""
+      "image":"duplex-2"
     },
     {
       "id":5,
@@ -50,7 +53,6 @@ export class PropertyCardComponent implements OnInit {
       "Name":"Pearl White House",
       "Type":"Duplex",
       "Price":5000,
-      "image":"house-1"
     }
   ];
 
