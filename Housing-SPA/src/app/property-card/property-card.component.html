@@ -1,11 +1,7 @@
-<div class="row">
-    <div *ngFor="let property of Properties2" class="col-sm-4 shadow-lg p-3 mb-5 bg-white rounded cardcontainer">    
-        <div class="card">
-            <img *ngIf="property.image" class="propImg" src="assets/images/{{property.image}}.png" alt="property image">
-            <img *ngIf="!property.image" class="propImg" src="assets/images/propNA.png" alt="property image">
-            <h1>{{property.Name}}</h1>
-            <h2>{{property.Type}}</h2>
-            <h3>{{property.Price}}</h3>            
-        </div>
-    </div>
+<div class="card">
+    <img *ngIf="property.image" class="propImg" src="assets/images/{{property.image}}.png" alt="property image">
+    <img *ngIf="!property.image" class="propImg" src="assets/images/propNA.png" alt="property image">
+    <h1>{{property.Name}}</h1>
+    <h2>{{property.Type}}</h2>
+    <h3>{{property.Price}}</h3> 
 </div>
