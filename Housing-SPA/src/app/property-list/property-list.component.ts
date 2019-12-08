@@ -12,7 +12,7 @@ export class PropertyListComponent implements OnInit {
       "Name":"Birla House",
       "Type":"House",
       "Price":12000,
-      "image":"duplex-1"
+      "image":"house-3"
     },
 
     {
