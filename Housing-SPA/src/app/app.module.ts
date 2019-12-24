@@ -12,7 +12,8 @@ import { HousingService } from './Services/housing.service';
 import { AddPropertyComponent } from './add-property/add-property.component';
 
 const appRoutes: Routes = [
-  { path:'', component: PropertyListComponent    },
+  { path:'', component: PropertyListComponent},
+  { path:'rent-property', component: PropertyListComponent},
   { path:'add-property', component: AddPropertyComponent }
 
 ];
