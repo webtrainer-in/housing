@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HousingService {
+  public newPropertySubject = new Subject<any>();
 
   constructor(private http:HttpClient) { }
 
@@ -15,13 +17,18 @@ export class HousingService {
     .pipe(
       map(responseData => {
         //console.log(responseData);
-        const PropertiesArray = [];
+        const propertiesArray = [];
         for (const id in responseData) {
-            PropertiesArray.push(responseData[id]);
+            propertiesArray.push(responseData[id]);
         }
-        //console.log(PropertiesArray);
-        return PropertiesArray; 
+        //console.log(propertiesArray);
+        return propertiesArray; 
       })
     )
+  }
+
+  addProperties(data)
+  {
+    this.newPropertySubject.next(data);
   }
 }
