@@ -13,11 +13,10 @@ export class AddPropertyComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddProperty()
-  {
+  onAddProperty(data):void  {
     //Add logic to save new property into database
+    console.log(data)
     this.router.navigate(['/rent-property']);
 
   }
-
 }
