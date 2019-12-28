@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class AddPropertyComponent implements OnInit {
 
+  propertyTypes: Array<string> = ['House','Apartment','Dupliex'];
+
   constructor(private router: Router) { }
 
   ngOnInit() {
