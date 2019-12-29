@@ -16,12 +16,10 @@ export class HousingService {
     return this.http.get('data/properties.json')
     .pipe(
       map(responseData => {
-        //console.log(responseData);
         const propertiesArray = [];
         for (const id in responseData) {
             propertiesArray.push(responseData[id]);
         }
-        //console.log(propertiesArray);
         return propertiesArray; 
       })
     )
