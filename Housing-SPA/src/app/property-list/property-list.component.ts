@@ -7,7 +7,7 @@ import { HousingService } from '../Services/housing.service';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit {
-  
+
   Properties: Array<any>;
 
   constructor(private housingServices:HousingService) { }
@@ -20,9 +20,10 @@ export class PropertyListComponent implements OnInit {
       error => console.log(error.statusText)
       );
 
-      this.housingServices.newPropertySubject.subscribe(
-        data=>console.log(data)
-      );
+    this.housingServices.newPropertySubject.subscribe(
+      data=>this.Properties=[data,...this.Properties]
+      //data=>console.log(data,...this.Properties)
+    );
   }
   }
 

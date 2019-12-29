@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import {HousingService} from '../Services/housing.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-property',
@@ -9,7 +10,8 @@ import {HousingService} from '../Services/housing.service';
 })
 export class AddPropertyComponent implements OnInit {
 
-  propertyTypes: Array<string> = ['House','Apartment','Dupliex'];
+  @ViewChild('addPropertyForm',{static:true}) addPropertyForm: NgForm;
+  propertyTypes: Array<string> = ['House','Apartment','Duplex'];
 
   constructor(private router: Router, public housingService: HousingService) { }
 
@@ -18,7 +20,8 @@ export class AddPropertyComponent implements OnInit {
 
   onAddProperty(data):void  {
     //Add logic to save new property into database
-    this.housingService.addProperties(data);    
+    this.housingService.addProperties(data);  
+    this.addPropertyForm.reset();
     this.router.navigate(['/rent-property']);
 
   }
