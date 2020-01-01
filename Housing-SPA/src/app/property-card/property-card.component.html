@@ -1,8 +1,10 @@
-<div class="card">
-    <img *ngIf="property.image" class="propImg" src="assets/images/{{property.image}}.png" alt="property image">
-    <img *ngIf="!property.image" class="propImg" src="assets/images/propNA.png" alt="property image">
-    <div style="margin: 10px;">
-        <h1> {{property.Name}} </h1>
+<div class="card mb-4" >
+    <div class="card-img-wrapper propImg">
+        <img *ngIf="property.image" class="card-img-top" src="assets/images/{{property.image}}.png" alt="property image">
+        <img *ngIf="!property.image" class="card-img-top" src="assets/images/propNA.png" alt="property image">
+    </div>
+    <div class="card-body p-1">
+        <h1 class="card-title"> {{property.Name}} </h1>
         <h2>Type: <i class="fas fa-tags"></i> {{property.Type}}</h2>
         <h3>Price: <i class="fas fa-dollar-sign"></i>{{property.Price}}</h3> 
     </div>
