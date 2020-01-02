@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import {HousingService} from '../Services/housing.service';
+import {HousingService} from '../../Services/housing.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
