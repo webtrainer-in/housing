@@ -10,12 +10,14 @@ import { PropertyCardComponent } from './property/property-card/property-card.co
 import { PropertyListComponent } from './property/property-list/property-list.component';
 import { HousingService } from './Services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
+import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 import { PropertyResolver } from './property/add-property/property-resolver.service';
 
 const appRoutes: Routes = [
   { path:'', component: PropertyListComponent},
   { path:'rent-property', component: PropertyListComponent, resolve: {prp: PropertyResolver}},
-  { path:'add-property', component: AddPropertyComponent }
+  { path:'add-property', component: AddPropertyComponent },
+  { path:'property-detail/:id', component: PropertyDetailComponent }
 
 ];
 
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     BindingComponent,
     PropertyCardComponent,
     PropertyListComponent,
-    AddPropertyComponent
+    AddPropertyComponent,
+    PropertyDetailComponent
   ],
   imports: [
     BrowserModule, 

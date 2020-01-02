@@ -10,7 +10,7 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 })
 export class PropertyListComponent implements OnInit {
 
-  private Properties: Array<any>;
+  private Properties: Array<Property>;
   private NewProperty:any;
 
   constructor(private housingServices:HousingService,
@@ -27,9 +27,13 @@ export class PropertyListComponent implements OnInit {
       this.Properties=[this.NewProperty,...this.Properties];      
       console.log("I am in GetAllProperties subscriber");
       console.log(this.NewProperty);
+      //this.Properties=[this.housingServices.getProperty(1,this.Properties)];
       },
       error => console.log(error.statusText)
       );
+
+      
+
 
     //This will always run first  
     this.route.data.subscribe(

@@ -25,6 +25,11 @@ export class HousingService {
     )
   }
 
+  getProperty(id:number, prop:Property[])
+  { 
+    return prop.find(p=>p.id===id);
+  }
+
   addProperties(data)
   {
     this.newPropertySubject.next(data);
