@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
+import { HousingService } from 'src/app/Services/housing.service';
 
 @Component({
   selector: 'app-property-card',
@@ -7,9 +10,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PropertyCardComponent implements OnInit {
   @Input ('property') property : Property;
-  constructor() { }
+  constructor(private router: Router, public housingService: HousingService) { }
 
   ngOnInit() {
+  }
+
+  onViewDetailClick(property)
+  {
+    this.housingService.getAllPropertiesLocal(property);
+    this.router.navigate(["/property-detail/"+property.id]);
+    console.log(property);
   }
 
 }

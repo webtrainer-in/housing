@@ -37,7 +37,7 @@ export class PropertyListComponent implements OnInit {
 
     //This will always run first  
     this.route.data.subscribe(
-      (data: Data) => {
+        (data: Data) => {
         this.NewProperty=data['prp'];
         console.log("I am in resolver suscriber");
       }

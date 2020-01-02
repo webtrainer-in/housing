@@ -8,6 +8,7 @@ import {Subject} from 'rxjs';
 })
 export class HousingService {
   public newPropertySubject = new Subject<any>();
+  public PropertyListSubject = new Subject<any>();
 
   constructor(private http:HttpClient) { }
 
@@ -33,5 +34,12 @@ export class HousingService {
   addProperties(data)
   {
     this.newPropertySubject.next(data);
+  }
+
+  
+  
+  getAllPropertiesLocal(data)
+  {
+    this.PropertyListSubject.next(data);
   }
 }

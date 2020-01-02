@@ -12,12 +12,13 @@ import { HousingService } from './Services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 import { PropertyResolver } from './property/add-property/property-resolver.service';
+import { PropertyDetailResolver } from './resolvers/property-detail-resolver';
 
 const appRoutes: Routes = [
   { path:'', component: PropertyListComponent},
   { path:'rent-property', component: PropertyListComponent, resolve: {prp: PropertyResolver}},
   { path:'add-property', component: AddPropertyComponent },
-  { path:'property-detail/:id', component: PropertyDetailComponent }
+  { path:'property-detail/:id', component: PropertyDetailComponent, resolve: {prp:PropertyDetailResolver}}
 
 ];
 
@@ -37,7 +38,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    HousingService, PropertyResolver
+    HousingService, PropertyResolver, PropertyDetailResolver
   ],
   bootstrap: [AppComponent]
 })
