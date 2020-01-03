@@ -1,0 +1,23 @@
+.card {
+    min-height: 600px;
+  }
+
+.card img{
+  height: 85%;
+  width: 85%;
+  margin: 25px;
+}
+
+.card-img-wrapper{
+  overflow: hidden;
+  height: 250px;
+  position: relative;
+}
+
+.card-body{
+    padding: 25px;  
+}
+
+.card-footer{
+    background-color: #fff;
+}

@@ -13,6 +13,7 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 import { PropertyResolver } from './property/add-property/property-resolver.service';
 import { PropertyDetailResolver } from './resolvers/property-detail-resolver';
+import {TabsModule} from 'ngx-bootstrap';
 
 const appRoutes: Routes = [
   { path:'', component: PropertyListComponent},
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     BrowserModule, 
     FormsModule, 
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    TabsModule.forRoot()
   ],
   providers: [
     HousingService, PropertyResolver, PropertyDetailResolver

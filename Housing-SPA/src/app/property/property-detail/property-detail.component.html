@@ -1,3 +1,42 @@
-<p>Hey you selected property id {{property?.id }} </p>
-<p> Price: {{property?.Price}} </p>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card mb-12">
+            <div class="card-img-wrapper">
+                <img *ngIf="property.image" class="card-img-top" src="assets/images/{{property.image}}.png" alt="property image">
+                <img *ngIf="!property.image" class="card-img-top" src="assets/images/propNA.png" alt="property image">
+            </div>
+            <div class="card-body">
+                <h1 class="card-title"> {{property.Name}} </h1>
+                <div>
+                    <strong>{{property.BHK}} BHK  {{property.Type}} @ ${{property.Price}}</strong>               
+                </div>
+                <div>
+                   <strong>in {{property.City}}</strong>               
+                </div> <hr> 
+                <div>
+                    <strong>Built Area: </strong> 
+                    {{property.BuiltArea}} Sqft                  
+                </div>
+
+                <div>
+                    <strong>Carpet Area: </strong> 
+                    {{property.CarpetArea}} Sqft                   
+                </div>
+                <div>
+                    <strong>Furnishing Type: </strong> 
+                    {{property.Furnishing}}                  
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-primary w-100">Like</button>
+                    <button class="btn btn-success w-100">Message</button>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        Pannel to be placed here
+    </div>
+</div>
 

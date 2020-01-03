@@ -1,10 +1,15 @@
 interface Property{
-    id:number;
+    Id:number;
+    BuuSell:number;
     Name:string;
     Type:string;
-    Price:number;
-    image:string;
+    BHK:number,
+    Price:number;    
     City:string;
     Address:string;
-    Description:string;
+    Description?:string;
+    Image?:string;
+    BuiltArea:number;
+    CarpetArea:number;
+    SecurityDeposit?:number;
 }

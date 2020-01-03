@@ -28,7 +28,7 @@ export class HousingService {
 
   getProperty(id:number, prop:Property[])
   { 
-    return prop.find(p=>p.id===id);
+    return prop.find(p=>p.Id===id);
   }
 
   addProperties(data)
