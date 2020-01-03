@@ -27,14 +27,6 @@ export class PropertyDetailComponent implements OnInit {
 
     // this.propertyid=this.route.snapshot.params['id'];
 
-    // this.housingServices.PropertyListSubject.subscribe(
-    //          data=>{
-    //          this.property=data;
-    //          console.log("Hola");
-    //          console.log(this.property);
-    //         });
-
-
     // this.housingServices.getAllProperties()
     // .subscribe(
     //   data => {

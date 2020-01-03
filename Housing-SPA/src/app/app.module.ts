@@ -37,7 +37,7 @@ const appRoutes: Routes = [
     FormsModule, 
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),    
   ],
   providers: [
     HousingService, PropertyResolver, PropertyDetailResolver
