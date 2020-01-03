@@ -18,7 +18,7 @@ export class PropertyCardComponent implements OnInit {
   onViewDetailClick(property)
   {
     this.housingService.getAllPropertiesLocal(property);
-    this.router.navigate(["/property-detail/"+property.id]);
+    this.router.navigate(["/property-detail/"+property.Id]);
     console.log(property);
   }
 
