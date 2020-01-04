@@ -24,12 +24,11 @@ export class PropertyDetailComponent implements OnInit {
 
     this.galleryOptions = [
       {
-          width: '680px',
-          height: '500px',
-          thumbnailsColumns: 4,
-          imagePercent: 100,
+          width: '100%',
+          height:'510px',
+          thumbnailsColumns: 4,          
           imageAnimation: NgxGalleryAnimation.Slide,
-          preview: false
+          preview: true
       }
     ];
     this.galleryImages = [
