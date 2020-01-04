@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +14,14 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
 import { PropertyResolver } from './property/add-property/property-resolver.service';
 import { PropertyDetailResolver } from './resolvers/property-detail-resolver';
 import {TabsModule} from 'ngx-bootstrap';
+import {NgxGalleryModule} from 'ngx-gallery';
+
+export class CustomHammerConfig extends HammerGestureConfig  {
+  overrides = {
+      pinch: { enable: false },
+      rotate: { enable: false }
+  };
+}
 
 const appRoutes: Routes = [
   { path:'', component: PropertyListComponent},
@@ -36,11 +44,13 @@ const appRoutes: Routes = [
     BrowserModule, 
     FormsModule, 
     HttpClientModule,
+    NgxGalleryModule,
     RouterModule.forRoot(appRoutes),
-    TabsModule.forRoot(),    
+    TabsModule.forRoot()    
   ],
   providers: [
-    HousingService, PropertyResolver, PropertyDetailResolver
+    HousingService, PropertyResolver, PropertyDetailResolver,
+    { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
   ],
   bootstrap: [AppComponent]
 })

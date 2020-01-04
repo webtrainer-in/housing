@@ -8,9 +8,11 @@
       "Price":12000,
       "BuiltArea":1200,
       "CarpetArea":900,
-      "image":"house-3",
-      "City":"New York",
+      "image":"house-3",      
       "Address":"6 Street",
+      "Address2":"Golf Course Road",
+      "Address3":"Near Bank of America",
+      "City":"New York",
       "Description":"Well Maintained builder floor available for rent at prime location. # property features- - 5 mins away from metro station - Gated community - 24*7 security. # property includes- - Big rooms (Cross ventilation & proper sunlight) - Drawing and dining area - Washrooms - Balcony - Modular kitchen - Near gym, market, temple and park - Easy commuting to major destination. Feel free to call With Query.",
       "FloorNo":"Lower of 3 Floor",
       "NewOld":1,
@@ -20,7 +22,8 @@
       "Gated":1,
       "Security":0,
       "Maintenance":300,
-      "Posession":"Ready to move"
+      "Posession":"Ready to move",
+      "PostedOn":"01-Jan-2019"
     },
 
     {
@@ -33,8 +36,10 @@
       "BuiltArea":1200,
       "CarpetArea":900,
       "image":"apartment-1",
-      "City":"New York",
       "Address":"5 Street",
+      "Address2":"Golf Course Road",
+      "Address3":"Near Bank of America",
+      "City":"New York",
       "Description":"2 BHK, 2 Bathroom, 1 Car Parking",
       "FloorNo":"Lower of 3 Floor",
       "NewOld":1,
@@ -44,7 +49,8 @@
       "Gated":1,
       "Security":0,
       "Maintenance":300,
-      "Posession":"Ready to move"      
+      "Posession":"Ready to move",
+      "PostedOn":"01-Jan-2019"      
     },
     {
       "Id":3,
@@ -56,8 +62,10 @@
       "BuiltArea":1200,
       "CarpetArea":900,
       "image":"house-hill-2",
+      "Address":"5 Street",
+      "Address2":"Golf Course Road",
+      "Address3":"Near Bank of America",
       "City":"New York",
-      "Address":"8 Street",
       "Description":"2 BHK, 2 Bathroom, 1 Car Parking",
       "FloorNo":"Lower of 3 Floor",
       "NewOld":1,
@@ -67,7 +75,8 @@
       "Gated":1,
       "Security":0,
       "Maintenance":300,
-      "Posession":"Ready to move"
+      "Posession":"Ready to move",
+      "PostedOn":"01-Jan-2019"
     },
 
     {
@@ -80,8 +89,10 @@
       "BuiltArea":1200,
       "CarpetArea":900,
       "image":"duplex-2",
+      "Address":"15 Street",
+      "Address2":"Golf Course Road",
+      "Address3":"Near Bank of America",
       "City":"New York",
-      "Address":"6 Golf Road",
       "Description":"2 BHK, 2 Bathroom, 1 Car Parking",
       "FloorNo":"Lower of 3 Floor",
       "NewOld":1,
@@ -91,7 +102,8 @@
       "Gated":1,
       "Security":0,
       "Maintenance":300,
-      "Posession":"Ready to move"
+      "Posession":"Ready to move",
+      "PostedOn":"01-Jan-2019"
     },
     {
       "Id":5,
@@ -103,8 +115,10 @@
       "BuiltArea":1200,
       "CarpetArea":900,
       "image":"house-1",
+      "Address":"18 Street",
+      "Address2":"Golf Course Road",
+      "Address3":"Near Bank of America",
       "City":"New York",
-      "Address":"5 Golf Course",
       "Description":"2 BHK, 2 Bathroom, 1 Car Parking",
       "FloorNo":"Lower of 3 Floor",
       "NewOld":1,
@@ -114,7 +128,8 @@
       "Gated":1,
       "Security":0,
       "Maintenance":300,
-      "Posession":"Ready to move"
+      "Posession":"Ready to move",
+      "PostedOn":"01-Jan-2019"
     },
 
     {
@@ -126,8 +141,10 @@
       "Price":5000,
       "BuiltArea":1200,
       "CarpetArea":900,
+      "Address":"1 Street",
+      "Address2":"Golf Course Road",
+      "Address3":"Near Bank of America",
       "City":"New York",
-      "Address":"60 SGM Nagar",
       "Description":"2 BHK, 2 Bathroom, 1 Car Parking",
       "FloorNo":"Lower of 3 Floor",
       "NewOld":1,
@@ -137,6 +154,7 @@
       "Gated":1,
       "Security":0,
       "Maintenance":300,
-      "Posession":"Ready to move"
+      "Posession":"Ready to move",
+      "PostedOn":"01-Jan-2019"
     }
   ]

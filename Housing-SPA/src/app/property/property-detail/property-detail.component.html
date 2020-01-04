@@ -101,14 +101,25 @@
                         </div>
                       </div>                                      
                 </tab>
-                <tab heading="Address & Contact ">
-                    Place amenities here
+                <tab heading="Address ">
+                    <div class="col-sm-12">
+                        <div class="heading">
+                            <strong>{{property.Address}}</strong><br/>
+                            <strong>{{property.Address2}}</strong><br/>
+                            <strong>{{property.Address3}}</strong><br/>
+                            <strong>{{property.City}}</strong>
+                        </div>                            
+                    </div>  
                 </tab>
 
                 <tab heading="Photos">
-                    Place photos here
+                    <div class="col-sm-6">
+                        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                    </div>
                 </tab>
-
+                <tab heading="Contact Seller">
+                    This should be restricted area and only registered user should be able to see seller details.
+                </tab>
             </tabset>
         </div>
     </div>
