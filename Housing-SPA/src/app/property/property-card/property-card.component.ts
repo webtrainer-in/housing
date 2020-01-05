@@ -9,7 +9,7 @@ import { HousingService } from 'src/app/Services/housing.service';
   styleUrls: ['./property-card.component.css']
 })
 export class PropertyCardComponent implements OnInit {
-  @Input ('property') property : Property;
+  @Input () property: Property;
   constructor(private router: Router, public housingService: HousingService) { }
 
   ngOnInit() {
@@ -17,8 +17,7 @@ export class PropertyCardComponent implements OnInit {
 
   onViewDetailClick(property)
   {
-    this.housingService.getAllPropertiesLocal(property);
-    this.router.navigate(["/property-detail/"+property.Id]);
+    this.router.navigate(['/property-detail/' +property.Id]);
     console.log(property);
   }
 

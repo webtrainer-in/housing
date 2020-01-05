@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" routerLink="/">
+        <img src="assets\images\brand-image.png" width="30" height="30" alt="">
+        Housing
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li>
+            <a  
+              [routerLinkActiveOptions]="{exact:true}" 
+              routerLinkActive="active" 
+              class="nav-link" 
+              routerLink="/">
+              Buy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  
+              routerLinkActive="active" 
+              routerLink="/rent-property"              
+              >Rent
+            </a>
+          </li>
+          <li class="nav-item">
+            <a 
+              class="nav-link" 
+              routerLinkActive="active" 
+              routerLink="/add-property">
+              List Property (Free)
+            </a>
+          </li>
+          <li class="nav-item">
+            <a 
+              class="nav-link" 
+              routerLink="/">
+              Register
+            </a>
+          </li>
+        </ul>
+      </div>      
+
+      <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
+          <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
+              Welcome James
+          </a>
+          <div class="dropdown-menu" *dropdownMenu>
+              <a href="#" class="dropdown-item"><i class="far fa-user-circle"></i> My Profile</a>
+              <a href="#" class="dropdown-item"><i class="fas fa-key"></i> Change Password</a>
+              <a (click)='onLogout()' class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </div>
+      </div>
+      
+      <form *ngIf="!loggedin()" #loginForm="ngForm" class="navbar-right" (ngSubmit)="onLogin(loginForm)">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item mr-2">
+                <input class="form-control" name="userName" [(ngModel)]="member.userName" required type="text" placeholder="User Name">
+            </li>
+            <li class="nav-item mr-2">
+                <input class="form-control" name="userPassword" [(ngModel)]="member.userPassword" required type="password" placeholder="Password">
+            </li>
+
+            <li class="nav-item active">
+                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary navbar-btn nav-link">Login</button>
+            </li>
+        </ul>
+    </form>
+</nav>
+
+

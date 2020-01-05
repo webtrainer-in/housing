@@ -13,8 +13,10 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 import { PropertyResolver } from './property/add-property/property-resolver.service';
 import { PropertyDetailResolver } from './resolvers/property-detail-resolver';
-import {TabsModule} from 'ngx-bootstrap';
+import {TabsModule, BsDropdownModule} from 'ngx-bootstrap';
 import {NgxGalleryModule} from 'ngx-gallery';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AuthService } from './Services/auth.service';
 
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
@@ -38,18 +40,20 @@ const appRoutes: Routes = [
     PropertyCardComponent,
     PropertyListComponent,
     AddPropertyComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    NavbarComponent
   ],
   imports: [
-    BrowserModule, 
-    FormsModule, 
+    BrowserModule,
+    FormsModule,
     HttpClientModule,
     NgxGalleryModule,
     RouterModule.forRoot(appRoutes),
-    TabsModule.forRoot()    
+    TabsModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [
-    HousingService, PropertyResolver, PropertyDetailResolver,
+    HousingService, PropertyResolver, PropertyDetailResolver, AuthService,
     { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
   ],
   bootstrap: [AppComponent]

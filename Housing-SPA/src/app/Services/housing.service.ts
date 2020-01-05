@@ -11,11 +11,10 @@ export class HousingService {
   public newPropertySubject = new Subject<any>();
   public PropertyListSubject = new Subject<any>();
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  //Get all properties from API
-  getAllProperties()
-  {
+  // Get all properties from API
+  getAllProperties() {
     return this.http.get('data/properties.json')
     .pipe(
       map(responseData => {
@@ -23,14 +22,13 @@ export class HousingService {
         for (const id in responseData) {
             propertiesArray.push(responseData[id]);
         }
-        return propertiesArray; 
+        return propertiesArray;
       })
-    )
+    );
   }
 
-  //Get single property by ID from API
-  getProperty(id:number)
-  {
+  // Get single property by ID from API
+  getProperty(id: number) {
     return this.http.get('data/properties.json')
     .pipe(
       map(responseData => {
@@ -38,20 +36,12 @@ export class HousingService {
         for (const id in responseData) {
             propertiesArray.push(responseData[id]);
         }
-        return propertiesArray.find(p=>p.Id==id); 
+        return propertiesArray.find(p => p.Id === id);
       })
-    )
+    );
   }
-  
-  addProperties(data)
-  {
+
+  addProperties(data) {
     this.newPropertySubject.next(data);
-  }
-
-  
-  
-  getAllPropertiesLocal(data)
-  {
-    this.PropertyListSubject.next(data);
   }
 }
