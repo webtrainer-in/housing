@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 export class NavbarComponent implements OnInit {
 
   member: any = {};
+  showNavbar = false;
 
   constructor(private authService: AuthService) { }
 
@@ -32,5 +33,9 @@ export class NavbarComponent implements OnInit {
   loggedin() {
     const token = localStorage.getItem('token');
     return !!token;
+  }
+
+  onToggleNavbar() {
+    this.showNavbar = !this.showNavbar;
   }
 }
