@@ -10,14 +10,14 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 })
 export class PropertyDetailComponent implements OnInit {
   private property: any;
-  private propertyid:number
+  private propertyid: number;
   private properties: Property[];
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor(private route: ActivatedRoute, 
-              private housingServices:HousingService
+  constructor(private route: ActivatedRoute,
+              private housingServices: HousingService
     ) { }
 
   ngOnInit() {
@@ -26,11 +26,13 @@ export class PropertyDetailComponent implements OnInit {
       {
           width: '100%',
           height:'510px',
-          thumbnailsColumns: 4,          
+          thumbnailsColumns: 4,
           imageAnimation: NgxGalleryAnimation.Slide,
           preview: true
       }
     ];
+
+    // It should be populated from property object, will get this updated once API is developed
     this.galleryImages = [
       {
           small: 'assets/images/internal-1.jpg',
@@ -59,14 +61,14 @@ export class PropertyDetailComponent implements OnInit {
       },
 
 
-    ];  
+    ];
 
     this.route.data.subscribe(
       (data: Property) => {
-        this.property=data['prp'];
+        this.property = data['prp'];
         console.log(this.property);
       });
-        
+
 
     // this.propertyid=this.route.snapshot.params['id'];
 

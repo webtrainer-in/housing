@@ -7,23 +7,20 @@ import { catchError } from 'rxjs/operators';
 
 
 @Injectable()
-export class PropertyDetailResolver implements Resolve<Property>{
-    
-    propertyid:number;
+export class PropertyDetailResolver implements Resolve<Property> {
+
+    propertyid: number;
     private properties: Property[];
-    
 
     private property: Property;
-    constructor(private router: Router, private housingServices: HousingService)
-    {
+    constructor(private router: Router, private housingServices: HousingService) {
 
     }
-  
-    resolve(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): Observable<any>|Property
-    {
-        this.propertyid=route.params['id'];
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>|Property {
+        this.propertyid = route.params['id'];
         return this.housingServices.getProperty(+this.propertyid).pipe(
-            catchError(error=>{
+            catchError(error => {
                 this.router.navigate(['/']);
                 return of(null);
             })

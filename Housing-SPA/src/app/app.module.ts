@@ -26,10 +26,10 @@ export class CustomHammerConfig extends HammerGestureConfig  {
 }
 
 const appRoutes: Routes = [
-  { path:'', component: PropertyListComponent},
-  { path:'rent-property', component: PropertyListComponent, resolve: {prp: PropertyResolver}},
-  { path:'add-property', component: AddPropertyComponent },
-  { path:'property-detail/:id', component: PropertyDetailComponent, resolve: {prp:PropertyDetailResolver}}
+  { path: '', component: PropertyListComponent},
+  { path: 'property-list/:SellRent', component: PropertyListComponent, resolve: {prp: PropertyResolver}},
+  { path: 'add-property', component: AddPropertyComponent },
+  { path: 'property-detail/:id', component: PropertyDetailComponent, resolve: {prp: PropertyDetailResolver}}
 
 ];
 

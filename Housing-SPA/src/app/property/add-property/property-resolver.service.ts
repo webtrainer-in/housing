@@ -7,16 +7,17 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class PropertyResolver implements Resolve<Property>{
-    private property: Property
+    private property: Property;
+
     constructor(private housingServices: HousingService)
     {
 
     }
-  
-    resolve(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): Property
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Property
     {
-         this.housingServices.newPropertySubject.subscribe(
-             data=>this.property=data);
-        return this.property;      
+        this.housingServices.newPropertySubject.subscribe(
+        data => this.property = data);
+        return this.property;
     }
 }

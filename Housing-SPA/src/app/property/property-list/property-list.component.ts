@@ -11,40 +11,43 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 export class PropertyListComponent implements OnInit {
 
   private Properties: Array<Property>;
-  private NewProperty:any;
+  private NewProperty: any;
 
-  constructor(private housingServices:HousingService,
-    private route:ActivatedRoute,
-    private router:Router) { }
-  
+  constructor(
+    private housingServices: HousingService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
+
   ngOnInit() {
 
-    this.housingServices.getAllProperties()
+    const PropertyType = this.route.snapshot.params['SellRent'] ? 2 : 1;
+    console.log(PropertyType);
+    this.housingServices.getAllProperties(PropertyType)
     .subscribe(
       data => {
-      this.Properties=data;       
-      if (this.NewProperty)
-      this.Properties=[this.NewProperty,...this.Properties];      
-      console.log("I am in GetAllProperties subscriber");
+      this.Properties = data;
+      if (this.NewProperty) {
+      this.Properties=[this.NewProperty,...this.Properties]; }
+      console.log('I am in GetAllProperties subscriber');
       console.log(this.NewProperty);
-      //this.Properties=[this.housingServices.getProperty(1,this.Properties)];
+      // this.Properties=[this.housingServices.getProperty(1,this.Properties)];
       },
       error => console.log(error.statusText)
       );
 
-      
 
 
-    //This will always run first  
+    // This will always run first
     this.route.data.subscribe(
         (data: Data) => {
         this.NewProperty=data['prp'];
-        console.log("I am in resolver suscriber");
+        console.log('I am in resolver suscriber');
       }
     );
 
-  //Subject like below will work only in case both add-property and 
-  //list component both on same page, it will not work in case of routng, we need to use route resolver to resolve the problem
+  // Subject like below will work only in case both add-property and 
+  // list component both on same page, it will not work in case of routng, we need to use route resolver to resolve the problem
 
   //  this.housingServices.newPropertySubject.subscribe(
   //    data=>{
@@ -52,7 +55,7 @@ export class PropertyListComponent implements OnInit {
   //      console.log("I am in subject suscriber");
   //      console.log(this.NewProperty);
 
-  //    }      
+  //    }
   //   );
   }
   }
