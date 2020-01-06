@@ -19,8 +19,10 @@ export class HousingService {
     .pipe(
       map(responseData => {
         const propertiesArray = [];
-        for (const id in responseData) {          
+        for (const id in responseData) {
+          if (responseData[id].SellRent === SellRent) {
             propertiesArray.push(responseData[id]);
+          }
         }
         return propertiesArray;
       })
