@@ -10,19 +10,19 @@ import { NgForm } from '@angular/forms';
 })
 export class AddPropertyComponent implements OnInit {
 
-  @ViewChild('addPropertyForm',{static:true}) addPropertyForm: NgForm;
-  propertyTypes: Array<string> = ['House','Apartment','Duplex'];
+  @ViewChild('addPropertyForm',{static: true}) addPropertyForm: NgForm;
+  propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex'];
 
   constructor(private router: Router, public housingService: HousingService) { }
 
   ngOnInit() {
   }
 
-  onAddProperty(data):void  {
-    //Add logic to save new property into database
-    this.housingService.addProperties(data);  
+  onAddProperty(data): void  {
+    // Add logic to save new property into database
+    this.housingService.addProperties(data);
     this.addPropertyForm.reset();
-    this.router.navigate(['/rent-property']);
+    this.router.navigate(['/property-list/2']);
 
   }
 }

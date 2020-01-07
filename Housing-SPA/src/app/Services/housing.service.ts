@@ -44,6 +44,7 @@ export class HousingService {
   }
 
   addProperties(data) {
+    localStorage.setItem('newProp', JSON.stringify(data));
     this.newPropertySubject.next(data);
   }
 }

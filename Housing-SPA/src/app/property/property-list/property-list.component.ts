@@ -11,6 +11,7 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 export class PropertyListComponent implements OnInit {
 
   private Properties: Array<Property>;
+  private LocalProperties: Array<Property>;
   private NewProperty: any;
 
   constructor(
@@ -22,16 +23,39 @@ export class PropertyListComponent implements OnInit {
   ngOnInit() {
 
     const PropertyType = this.route.snapshot.params['SellRent'] ? 2 : 1;
-    console.log(PropertyType);
+
     this.housingServices.getAllProperties(PropertyType)
     .subscribe(
       data => {
-      this.Properties = data;
+
+      if (PropertyType === 1){
+        this.LocalProperties = JSON.parse(localStorage.getItem('BuyProperties'));
+      } else {
+        this.LocalProperties = JSON.parse(localStorage.getItem('RentProperties'));
+      }
+
+      this.NewProperty = JSON.parse(localStorage.getItem('newProp'));
+
+      if (this.LocalProperties) {
+          this.Properties = this.LocalProperties;
+        } else {
+          this.Properties = data;
+        }
+
       if (this.NewProperty) {
-      this.Properties=[this.NewProperty,...this.Properties]; }
-      console.log('I am in GetAllProperties subscriber');
-      console.log(this.NewProperty);
-      // this.Properties=[this.housingServices.getProperty(1,this.Properties)];
+      this.Properties = [this.NewProperty, ...this.Properties];
+
+      if (PropertyType === 1){
+        localStorage.setItem('BuyProperties', JSON.stringify(this.Properties));
+      } else {
+        localStorage.setItem('RentProperties', JSON.stringify(this.Properties));
+      }
+
+      localStorage.removeItem('newProp');
+      console.log('hey sandy');
+      console.log(this.Properties);
+      console.log(JSON.parse(localStorage.getItem('Properties')));
+      }
       },
       error => console.log(error.statusText)
       );
@@ -41,7 +65,7 @@ export class PropertyListComponent implements OnInit {
     // This will always run first
     this.route.data.subscribe(
         (data: Data) => {
-        this.NewProperty=data['prp'];
+        this.NewProperty = data['prp'];
         console.log('I am in resolver suscriber');
       }
     );

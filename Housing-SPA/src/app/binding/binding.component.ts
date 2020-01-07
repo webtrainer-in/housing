@@ -6,16 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./binding.component.css']
 })
 export class BindingComponent implements OnInit {
+  title = 'Housing-SPA';
+  yourname = 'John';
   constructor() { }
 
   ngOnInit() {
   }
-  
-  title = 'Housing-SPA';
-  yourname="John";
-  onInputChange(event: Event)
-  {
-    this.yourname=(<HTMLInputElement>event.target).value;
+
+
+  onInputChange(event: Event) {
+    this.yourname = (event.target as HTMLInputElement).value;
   }
 
 }
