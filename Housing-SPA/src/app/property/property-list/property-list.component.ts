@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HousingService } from '../../Services/housing.service';
 import { ActivatedRoute, Router, Data } from '@angular/router';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-property-list',
@@ -28,45 +27,24 @@ export class PropertyListComponent implements OnInit {
     .subscribe(
       data => {
 
-      if (PropertyType === 1){
-        this.LocalProperties = JSON.parse(localStorage.getItem('BuyProperties'));
-      } else {
-        this.LocalProperties = JSON.parse(localStorage.getItem('RentProperties'));
-      }
+      this.getLocalProperties(PropertyType);
+
+      // if local properties are blank, get it from database
+      this.LocalProperties ? this.Properties = this.LocalProperties : this.Properties = data;
 
       this.NewProperty = JSON.parse(localStorage.getItem('newProp'));
 
-      if (this.LocalProperties) {
-          this.Properties = this.LocalProperties;
-        } else {
-          this.Properties = data;
-        }
-
       if (this.NewProperty) {
-      this.Properties = [this.NewProperty, ...this.Properties];
-
-      if (PropertyType === 1){
-        localStorage.setItem('BuyProperties', JSON.stringify(this.Properties));
-      } else {
-        localStorage.setItem('RentProperties', JSON.stringify(this.Properties));
-      }
-
-      localStorage.removeItem('newProp');
-      console.log('hey sandy');
-      console.log(this.Properties);
-      console.log(JSON.parse(localStorage.getItem('Properties')));
+        this.saveNewPropertyToLocalStorage();
       }
       },
       error => console.log(error.statusText)
       );
 
-
-
-    // This will always run first
+    // This will always run first but we are not using it now as we are getting new property from local storage
     this.route.data.subscribe(
         (data: Data) => {
         this.NewProperty = data['prp'];
-        console.log('I am in resolver suscriber');
       }
     );
 
@@ -81,6 +59,26 @@ export class PropertyListComponent implements OnInit {
 
   //    }
   //   );
+  }
+
+  saveNewPropertyToLocalStorage() {
+    this.Properties = [this.NewProperty, ...this.Properties];
+
+    if (this.NewProperty.SellRent === '1') {
+      localStorage.setItem('BuyProperties', JSON.stringify(this.Properties));
+    } else if (this.NewProperty.SellRent === '2') {
+      localStorage.setItem('RentProperties', JSON.stringify(this.Properties));
+    }
+    localStorage.removeItem('newProp');
+  }
+
+  getLocalProperties(propertyType: number) {
+          // Fetch properties on te base of selected menu (Buy or Rent) from local storage
+          if (propertyType === 1) {
+            this.LocalProperties = JSON.parse(localStorage.getItem('BuyProperties'));
+          } else {
+            this.LocalProperties = JSON.parse(localStorage.getItem('RentProperties'));
+          }
   }
   }
 

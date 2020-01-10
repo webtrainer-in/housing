@@ -17,6 +17,7 @@ import {TabsModule, BsDropdownModule} from 'ngx-bootstrap';
 import {NgxGalleryModule} from 'ngx-gallery';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './Services/auth.service';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     NgxGalleryModule,
     RouterModule.forRoot(appRoutes),
     TabsModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    ButtonsModule.forRoot()
   ],
   providers: [
     HousingService, PropertyResolver, PropertyDetailResolver, AuthService,
