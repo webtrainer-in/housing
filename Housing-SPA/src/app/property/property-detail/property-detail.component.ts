@@ -9,10 +9,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
   styleUrls: ['./property-detail.component.css']
 })
 export class PropertyDetailComponent implements OnInit {
-  private property: any;
-  private propertyid: number;
-  private properties: Property[];
-
+  public property: Property;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
@@ -66,22 +63,8 @@ export class PropertyDetailComponent implements OnInit {
     this.route.data.subscribe(
       (data: Property) => {
         this.property = data['prp'];
-        console.log(this.property);
       });
 
-
-    // this.propertyid=this.route.snapshot.params['id'];
-
-    // this.housingServices.getAllProperties()
-    // .subscribe(
-    //   data => {
-    //     this.properties=data;
-    //     this.property=this.housingServices.getProperty(+this.propertyid,this.properties);
-    //     console.log(this.properties);
-    //     console.log(this.property );
-    //   },
-    //   error => console.log(error.statusText)
-    //   );
   }
 
 }

@@ -1,7 +1,7 @@
 <div class="card mb-4" >
     <div class="card-img-wrapper">
-        <img *ngIf="property.image" class="card-img-top" src="assets/images/{{property.image}}.png" alt="property image">
-        <img *ngIf="!property.image" class="card-img-top" src="assets/images/propNA.png" alt="property image">
+        <img *ngIf="property.Image" class="card-img-top" src="assets/images/{{property.Image}}.png" alt="property image">
+        <img *ngIf="!property.Image" class="card-img-top" src="assets/images/propNA.png" alt="property image">
         <ul class="list-inline member-icons animate text-center">
             <li class="list-inline-item">
                 <button class="btn btn-primary" (click)="onViewDetailClick(property)"><i class="fas fa-clipboard-list"></i></button> 

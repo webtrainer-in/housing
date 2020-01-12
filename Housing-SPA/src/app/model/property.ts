@@ -1,6 +1,6 @@
 export class Property {
     Id: number;
-    public SellRent: number;
+    SellRent: number;
     Name: string;
     Type: string;
     BHK: number;

@@ -15,8 +15,7 @@ export class PropertyCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  onViewDetailClick(property)
-  {
+  onViewDetailClick(property) {
     this.router.navigate(['/property-detail/' +property.Id]);
     console.log(property);
   }

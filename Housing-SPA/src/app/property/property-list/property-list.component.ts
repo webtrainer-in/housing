@@ -9,9 +9,9 @@ import { ActivatedRoute, Router, Data } from '@angular/router';
 })
 export class PropertyListComponent implements OnInit {
 
-  private Properties: Array<Property>;
-  private LocalProperties: Array<Property>;
-  private NewProperty: any;
+  public properties: Array<Property>;
+  private newProperty: any;
+  public allProperties: Array<Property>;
 
   constructor(
     private housingServices: HousingService,
@@ -21,22 +21,21 @@ export class PropertyListComponent implements OnInit {
 
   ngOnInit() {
 
-    const PropertyType = this.route.snapshot.params['SellRent'] ? 2 : 1;
+    const propertyType = this.route.snapshot.params['SellRent'] ? 2 : 1;
 
-    this.housingServices.getAllProperties(PropertyType)
+    this.housingServices.getAllPropertiesByType(propertyType)
     .subscribe(
       data => {
+        // if local properties are blank, get it from database
+        this.properties = data;
 
-      this.getLocalProperties(PropertyType);
+        this.newProperty = JSON.parse(localStorage.getItem('newProp'));
 
-      // if local properties are blank, get it from database
-      this.LocalProperties ? this.Properties = this.LocalProperties : this.Properties = data;
 
-      this.NewProperty = JSON.parse(localStorage.getItem('newProp'));
-
-      if (this.NewProperty) {
-        this.saveNewPropertyToLocalStorage();
-      }
+        if (this.newProperty) {
+          this.properties = [this.newProperty, ...this.properties];
+          this.saveNewPropertyToLocalStorage();
+        }
       },
       error => console.log(error.statusText)
       );
@@ -44,7 +43,7 @@ export class PropertyListComponent implements OnInit {
     // This will always run first but we are not using it now as we are getting new property from local storage
     this.route.data.subscribe(
         (data: Data) => {
-        this.NewProperty = data['prp'];
+        this.newProperty = data['prp'];
       }
     );
 
@@ -62,23 +61,16 @@ export class PropertyListComponent implements OnInit {
   }
 
   saveNewPropertyToLocalStorage() {
-    this.Properties = [this.NewProperty, ...this.Properties];
+    this.housingServices.getAllProperties().subscribe(
+      data => {
 
-    if (this.NewProperty.SellRent === '1') {
-      localStorage.setItem('BuyProperties', JSON.stringify(this.Properties));
-    } else if (this.NewProperty.SellRent === '2') {
-      localStorage.setItem('RentProperties', JSON.stringify(this.Properties));
-    }
-    localStorage.removeItem('newProp');
-  }
-
-  getLocalProperties(propertyType: number) {
-          // Fetch properties on te base of selected menu (Buy or Rent) from local storage
-          if (propertyType === 1) {
-            this.LocalProperties = JSON.parse(localStorage.getItem('BuyProperties'));
-          } else {
-            this.LocalProperties = JSON.parse(localStorage.getItem('RentProperties'));
-          }
+        if (localStorage.getItem('Properties')) {
+          data = JSON.parse(localStorage.getItem('Properties'));
+        }
+        this.allProperties = [this.newProperty, ...data];
+        localStorage.setItem('Properties', JSON.stringify(this.allProperties));
+        localStorage.removeItem('newProp');
+       });
   }
   }
 

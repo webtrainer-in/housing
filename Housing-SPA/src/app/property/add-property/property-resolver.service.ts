@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 
 
 @Injectable()
-export class PropertyResolver implements Resolve<Property>{
+export class PropertyResolver implements Resolve<Property> {
     private property: Property;
 
     constructor(private housingServices: HousingService)

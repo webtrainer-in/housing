@@ -13,28 +13,56 @@ import { Property } from '../../model/property';
 export class AddPropertyComponent implements OnInit {
 
   @ViewChild('addPropertyForm', {static: true}) addPropertyForm: NgForm;
-  private property =  new Property();
+  public property =  new Property();
 
 
   propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex'];
 
-  constructor(private router: Router, private housingService: HousingService, private alertify: AlertifyService ) { }
+  constructor(
+    private router: Router,
+    private housingService: HousingService,
+    private alertify: AlertifyService ) { }
 
   ngOnInit() {
   }
 
-  onAddProperty(data): void  {
+  onAddProperty(data: Property): void  {
       // Add logic to save new property into database
-      this.housingService.addProperties(data);
+      this.fillProperty(data);
+      this.housingService.addProperties(this.property);
       this.addPropertyForm.reset();
       this.alertify.success('Property Successfully added and listed on the site');
 
       // Redirect user to the page on the base of Sell and Rent option
-      if (data.SellRent === '2') {
+      if (data.SellRent ==+ '2') {
         this.router.navigate(['/property-list/2']);
       } else {
         this.router.navigate(['/']);
       }
     }
+
+  fillProperty(data: Property): void {
+    this.property.Id = this.getID(data);
+    this.property.Image = 'propNA';
+    this.property.Name = data.Name;
+    this.property.SellRent = data.SellRent;
+    this.property.Price = data.Price;
+    this.property.Address = data.Address;
+    this.property.City = data.City;
+    this.property.Description = data.Description;
+    this.property.Type = data.Type;
+    localStorage.setItem('PID', String(this.property.Id));
+  }
+
+  getID(data: Property) {
+    if (localStorage.getItem('PID')) {
+      return +localStorage.getItem('PID') + 1;
+    } else {
+      return 101;
+    }
+
+
+  }
+
 }
 
