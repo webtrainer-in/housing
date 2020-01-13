@@ -88,46 +88,139 @@
                                 </div>
                             </div>
 
+                            
                             <div class="form-group col-12">
-                                <label for="Price">Price</label>
-                                <input
-                                type="number"
-                                class="form-control"
-                                name="Price"
-                                ngModel
-                                required
-                                >
+                                    <p>Gated</p>
+                                    <div class="btn-group" btnRadioGroup name="Gated" [(ngModel)]="Gated">
+                                        <label 
+                                        class="btn btn-outline-primary mr-2" name="Gated"
+                                    [btnRadio]="1" tabindex="0"  role="button">Yes</label>      
+                                    
+                                    <label 
+                                    class="btn btn-outline-primary mr-2" name="Gated"
+                                    [btnRadio]="2" tabindex="0"  role="button">No</label>    
+                                    </div>
+                            </div>   
+                            
+                            <div class="form-group col-12">
+                                    <p>Main Entrance</p>
+                                    <div class="btn-group" btnRadioGroup name="Entrance" [(ngModel)]="Entrance">
+                                    <label 
+                                    class="btn btn-outline-primary mr-2" name="Entrance"
+                                    [btnRadio]="1" tabindex="0"  role="button">East</label>    
+                                    
+                                    <label 
+                                    class="btn btn-outline-primary mr-2" name="Entrance"
+                                    [btnRadio]="2" tabindex="0"  role="button">West</label>   
+
+                                    <label 
+                                    class="btn btn-outline-primary mr-2" name="Entrance"
+                                    [btnRadio]="3" tabindex="0"  role="button">South</label>   
+
+                                    <label 
+                                    class="btn btn-outline-primary mr-2" name="Entrance"
+                                    [btnRadio]="4" tabindex="0"  role="button">North</label>   
+
+                                    </div>
+                                                                      
+                            </div>                               
+                            
+                            <div class="form-group col-12">
+                                <label>Price Information (in rupees)</label>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <div class="input-group">  
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Price</span>
+                                    </div>                              
+                                    <input
+                                    type="number"
+                                    class="form-control"
+                                    name="Price"
+                                    ngModel
+                                    required>
+                                    <div class="input-group-append mr-2">
+                                            <span class="input-group-text"><i class="fa fa-inr"></i></span>
+                                    </div>
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Security</span>
+                                    </div>    
+                                    <input
+                                    type="number"
+                                    class="form-control"
+                                    name="Security"
+                                    ngModel
+                                    required>
+                                    <div class="input-group-append mr-2">
+                                        <span class="input-group-text"><i class="fa fa-inr"></i></span>
+                                    </div>
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Maintenance</span>
+                                    </div>    
+                                    <input
+                                    type="number"
+                                    class="form-control"
+                                    name="Maintenance"
+                                    ngModel
+                                    required>
+                                    <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fa fa-inr"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                                    <label>Area (in sqare feet)</label>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <div class="input-group">  
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Built up Area</span>
+                                    </div>                              
+                                    <input
+                                    type="number"
+                                    class="form-control"
+                                    name="Price"
+                                    ngModel
+                                    required>
+                                    <div class="input-group-append mr-2">
+                                            <span class="input-group-text">Sq.Feet</span>
+                                    </div>
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Carpet Area (Optional)</span>
+                                    </div>                              
+                                    <input
+                                    type="number"
+                                    class="form-control"
+                                    name="Price"
+                                    ngModel
+                                    required>
+                                    <div class="input-group-append">
+                                            <span class="input-group-text">Sq.Feet</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-12">
+                                    <label>Possession/Avaialble Date</label>
+                            </div>
+                            <div class="col-xs-12 col-12 col-md-4 form-group">
+                                <input type="text"
+                                    class="form-control"
+                                    bsDatepicker>
                             </div>
             
-                            <div class="form-group col-12">
-                                <label for="Address">Address</label>
-                                <textarea 
-                                type="text"
-                                class="form-control"
-                                name="Address"
-                                ngModel
-                                required
-                                >
-                                </textarea>
-                            </div>
-            
-                            <div class="form-group col-12">
-                                <label for="City">City</label>
-                                <input
-                                type="text"
-                                class="form-control"
-                                name="City"
-                                ngModel
-                                required
-                                >                
-                            </div>
                             <div class="form-group col-12">
                                 <label for="Desciption">Description</label>
                                 <textarea 
                                 type="text"
                                 class="form-control"
                                 name="Description"
-                                rows="16"
+                                rows="8"
                                 ngModel
                                 required
                                 >
@@ -136,6 +229,70 @@
                         </div>
                     </tab>
                     <tab heading="Address">
+                        <div class="form-group col-12">
+                            <label for="City">City</label>
+                            <input
+                            type="text"
+                            class="form-control"
+                            name="City"
+                            ngModel
+                            required
+                            >                
+                        </div>
+                        <div class="form-group col-4">
+                            <div class="input-group">  
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text">Floor</span>
+                                </div>                              
+                                <input
+                                type="number"
+                                class="form-control"
+                                name="Floor"
+                                ngModel
+                                required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Of</span>
+                                </div>
+                                <input
+                                type="number"
+                                class="form-control"
+                                name="TotalFloor"
+                                ngModel
+                                required>  
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Floors</span>
+                                </div>          
+                            </div>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="Address">Building/Society/Project (Optional)</label>
+                            <input 
+                            type="text"
+                            class="form-control"
+                            name="Address"
+                            ngModel
+                            required>                        
+                        </div> 
+                        <div class="form-group col-12">
+                            <label for="Address">Locality</label>
+                            <input 
+                            type="text"
+                            class="form-control"
+                            name="Address2"
+                            ngModel
+                            required>                        
+                        </div>  
+
+                        <div class="form-group col-12">
+                            <label for="Address">Landmark (Optional)</label>
+                            <input 
+                            type="text"
+                            class="form-control"
+                            name="Address3"
+                            ngModel
+                            required>                        
+                        </div>      
+
                     </tab>
                     <tab heading="Photos">
                     </tab>
