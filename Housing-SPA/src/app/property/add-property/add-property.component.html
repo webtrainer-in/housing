@@ -1,102 +1,150 @@
-<div class="card">
-    <div class="card-header">
-        Add New Property
+    <div class="card-header bg-transparent">
+        <h2>List your Property</h2>
     </div>
-    <div class="card-body">
-    <form #addPropertyForm="ngForm" (ngSubmit)="onAddProperty(addPropertyForm.value)">                
-        <div class="row">
-            <div class="col">
-                <div class="form-group col-12">
-                    <div class="btn-group">
-                        <label class="btn btn-primary" name="SellRent" ngModel
-                                btnRadio=1  role="button">Sell</label>
+    <div>
+    <form #addPropertyForm="ngForm" (ngSubmit)="onAddProperty(addPropertyForm.value)">                    
+            <div class="tab-panel">
+                <tabset class="member-tabset">
+                    <tab heading="Overview">
+                        <div class="col">
+                            <div class="form-group col-12">
+                                <p>I want to : </p>
+                                <div class="btn-group">
+                                    <label class="btn btn-outline-primary mr-2" name="SellRent" [(ngModel)]="SR"
+                                            btnRadio=1 tabindex="0"  role="button">Sell</label>
+            
+                                    <label class="btn btn-outline-primary" name="SellRent" [(ngModel)]="SR"
+                                            btnRadio=2  tabindex="0" role="button">Rent</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="Name">Property Name</label>
+                                <input
+                                type="text"
+                                class="form-control"
+                                name="Name"
+                                ngModel
+                                required
+                                >
+                            </div>
+            
+                            <div class="form-group col-12">
+                                <p><label for="Type">Property Type</label></p>
 
-                        <label class="btn btn-primary" name="SellRent" ngModel
-                                btnRadio=2  role="button">Rent</label>
+                                <div class="btn-group">
+                                    <label  *ngFor="let type of propertyTypes"
+                                    class="btn btn-outline-primary mr-2" name="Type" [(ngModel)]="Type"
+                                            [btnRadio]="type" tabindex="0"  role="button">{{ type }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <label for="AOP">Age of Property (in years)</label>
+                                <input
+                                type="number"
+                                class="form-control"
+                                name="AOP"
+                                ngModel
+                                required
+                                >
+                            </div>
+
+                            <div class="form-group col-12">
+                                <p>BHK</p>
+                                <div class="btn-group">
+                                    <label class="btn btn-outline-primary mr-2" name="BHK" [(ngModel)]="BHK"
+                                    btnRadio=1 tabindex="0"  role="button">1 BHK</label>
+         
+                                    <label class="btn btn-outline-primary mr-2" name="BHK" [(ngModel)]="BHK"
+                                    btnRadio=2 tabindex="0"  role="button">2 BHK</label>
+
+                                    <label class="btn btn-outline-primary mr-2" name="BHK" [(ngModel)]="BHK"
+                                    btnRadio=3 tabindex="0"  role="button">3 BHK</label>
+ 
+                                    <label class="btn btn-outline-primary mr-2" name="BHK" [(ngModel)]="BHK"
+                                    btnRadio=4 tabindex="0"  role="button">4 BHK</label>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <p>Bathroom</p>
+                                <div class="btn-group" btnRadioGroup name="Bathroom" [(ngModel)]="Bathrooms">
+                                    <label 
+                                    *ngFor="let brm of [1,2,3,4]"
+                                    class="btn btn-outline-primary mr-2"
+                                [btnRadio]="brm" tabindex="0"  role="button">{{brm}}</label>                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <p>Furnish Type</p>
+                                <div class="btn-group" btnRadioGroup name="ft" [(ngModel)]="ft">
+                                    <label 
+                                    *ngFor="let FT of FurnishTypes"
+                                    class="btn btn-outline-primary mr-2" name="Furnishing"
+                                [btnRadio]="FT" tabindex="0"  role="button">{{FT}}</label>                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <label for="Price">Price</label>
+                                <input
+                                type="number"
+                                class="form-control"
+                                name="Price"
+                                ngModel
+                                required
+                                >
+                            </div>
+            
+                            <div class="form-group col-12">
+                                <label for="Address">Address</label>
+                                <textarea 
+                                type="text"
+                                class="form-control"
+                                name="Address"
+                                ngModel
+                                required
+                                >
+                                </textarea>
+                            </div>
+            
+                            <div class="form-group col-12">
+                                <label for="City">City</label>
+                                <input
+                                type="text"
+                                class="form-control"
+                                name="City"
+                                ngModel
+                                required
+                                >                
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="Desciption">Description</label>
+                                <textarea 
+                                type="text"
+                                class="form-control"
+                                name="Description"
+                                rows="16"
+                                ngModel
+                                required
+                                >
+                                </textarea>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="Address">
+                    </tab>
+                    <tab heading="Photos">
+                    </tab>
+                    <div class="form-group col-6">
+                        <button type="submit" class="btn btn-primary mr-2">Add Property</button> 
+                        <button type="button" class="btn btn-secondary">Cancel</button> 
                     </div>
-                </div>
-                <div class="form-group col-12">
-                    <label for="Name">Name</label>
-                    <input
-                    type="text"
-                    class="form-control"
-                    name="Name"
-                    ngModel
-                    required
-                    >
-                </div>
-
-                <div class="form-group col-12">
-                    <label for="Type">Property Type</label>
-                    <select
-                    type="text"
-                    class="form-control"
-                    name="Type"
-                    ngModel
-                    required
-                    >
-                    <option 
-                    *ngFor="let type of propertyTypes"
-                        [value]="type">
-                        {{ type }}
-                    </option>
-                    </select>
-                </div>
-
-                <div class="form-group col-12">
-                    <label for="Price">Price</label>
-                    <input
-                    type="number"
-                    class="form-control"
-                    name="Price"
-                    ngModel
-                    required
-                    >
-                </div>
-
-                <div class="form-group col-12">
-                    <label for="Address">Address</label>
-                    <textarea 
-                    type="text"
-                    class="form-control"
-                    name="Address"
-                    ngModel
-                    required
-                    >
-                    </textarea>
-                </div>
-
-                <div class="form-group col-12">
-                    <label for="City">City</label>
-                    <input
-                    type="text"
-                    class="form-control"
-                    name="City"
-                    ngModel
-                    required
-                    >                
-                </div>
+                </tabset>
             </div>
-            <div class="col">
-                <div class="form-group col-12">
-                    <label for="Desciption">Description</label>
-                    <textarea 
-                    type="text"
-                    class="form-control"
-                    name="Description"
-                    rows="16"
-                    ngModel
-                    required
-                    >
-                    </textarea>
-                </div>
-            </div>
-        </div>
-        <div class="form-group col-6">
-            <button type="submit" class="btn btn-primary">Add Property</button> |
-            <button type="button" class="btn btn-secondary">Cancel</button> 
-        </div>
     </form>
-</div>
 </div>
 

@@ -15,6 +15,15 @@ export class AddPropertyComponent implements OnInit {
   @ViewChild('addPropertyForm', {static: true}) addPropertyForm: NgForm;
   public property =  new Property();
 
+  // Default radiobutton values
+  SR = '1';
+  Type = '';
+  BHK = '';
+  FurnishTypes = [
+    'Fully Furnished',
+    'Semi Furnished',
+    'Unfurnished'
+  ];
 
   propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex'];
 
@@ -28,6 +37,7 @@ export class AddPropertyComponent implements OnInit {
 
   onAddProperty(data: Property): void  {
       // Add logic to save new property into database
+      console.log(data);
       this.fillProperty(data);
       this.housingService.addProperties(this.property);
       this.addPropertyForm.reset();
@@ -45,7 +55,7 @@ export class AddPropertyComponent implements OnInit {
     this.property.Id = this.getID(data);
     this.property.Image = 'propNA';
     this.property.Name = data.Name;
-    this.property.SellRent = data.SellRent;
+    this.property.SellRent = +data.SellRent;
     this.property.Price = data.Price;
     this.property.Address = data.Address;
     this.property.City = data.City;
@@ -54,14 +64,13 @@ export class AddPropertyComponent implements OnInit {
     localStorage.setItem('PID', String(this.property.Id));
   }
 
+
   getID(data: Property) {
     if (localStorage.getItem('PID')) {
       return +localStorage.getItem('PID') + 1;
     } else {
       return 101;
     }
-
-
   }
 
 }
