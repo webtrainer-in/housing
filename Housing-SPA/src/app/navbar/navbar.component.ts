@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
   onLogout() {
     this.authService.logout();
     this.alertify.success('Logged out Successful')
-  } 
+  }
 
   loggedin() {
     const token = localStorage.getItem('token');

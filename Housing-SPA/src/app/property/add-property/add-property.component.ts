@@ -53,15 +53,34 @@ export class AddPropertyComponent implements OnInit {
 
   fillProperty(data: Property): void {
     this.property.Id = this.getID(data);
-    this.property.Image = 'propNA';
-    this.property.Name = data.Name;
     this.property.SellRent = +data.SellRent;
+    this.property.Name = data.Name;
+    this.property.Type = data.Type;
+    this.property.BHK = data.BHK;
+    this.property.Furnishing = data.Furnishing;
     this.property.Price = data.Price;
+    this.property.BuiltArea = data.BuiltArea;
+    this.property.CarpetArea = data.CarpetArea;
+    this.property.FloorNo = data.FloorNo + ' of ' + data.TotalFloor
     this.property.Address = data.Address;
+    this.property.Address2 = data.Address2;
+    this.property.Address3 = data.Address3;
     this.property.City = data.City;
     this.property.Description = data.Description;
-    this.property.Type = data.Type;
+    this.property.NewOld = +data.AOP > 3 ? 0 : 1;
+    this.property.AOP = data.AOP;
+    this.property.Bathrooms = data.Bathrooms;
+    this.property.MainEntrance = data.MainEntrance;
+    this.property.Gated = data.Gated;
+    this.property.Security = data.Security;
+    this.property.Maintenance = data.Maintenance;
+    this.property.Posession = data.Posession;
+    this.property.PostedOn = new Date().toString();
+    this.property.Image = 'propNA';
+
+
     localStorage.setItem('PID', String(this.property.Id));
+
   }
 
 

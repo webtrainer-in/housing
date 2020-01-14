@@ -47,6 +47,7 @@
                                 name="AOP"
                                 ngModel
                                 required
+                                maxlength="2"
                                 >
                             </div>
 
@@ -70,17 +71,17 @@
 
                             <div class="form-group col-12">
                                 <p>Bathroom</p>
-                                <div class="btn-group" btnRadioGroup name="Bathroom" [(ngModel)]="Bathrooms">
+                                <div class="btn-group" btnRadioGroup name="Bathrooms" [(ngModel)]="Bathrooms">
                                     <label 
                                     *ngFor="let brm of [1,2,3,4]"
                                     class="btn btn-outline-primary mr-2"
-                                [btnRadio]="brm" tabindex="0"  role="button">{{brm}}</label>                                    
+                                [btnRadio]="brm" tabindex="0" name="Bathrooms"  role="button">{{brm}}</label>                                    
                                 </div>
                             </div>
 
                             <div class="form-group col-12">
                                 <p>Furnish Type</p>
-                                <div class="btn-group" btnRadioGroup name="ft" [(ngModel)]="ft">
+                                <div class="btn-group" aria-required="true" btnRadioGroup name="Furnishing" [(ngModel)]="Furnishing">
                                     <label 
                                     *ngFor="let FT of FurnishTypes"
                                     class="btn btn-outline-primary mr-2" name="Furnishing"
@@ -104,21 +105,21 @@
                             
                             <div class="form-group col-12">
                                     <p>Main Entrance</p>
-                                    <div class="btn-group" btnRadioGroup name="Entrance" [(ngModel)]="Entrance">
+                                    <div class="btn-group" btnRadioGroup name="MainEntrance" [(ngModel)]="Entrance">
                                     <label 
-                                    class="btn btn-outline-primary mr-2" name="Entrance"
+                                    class="btn btn-outline-primary mr-2" name="MainEntrance"
                                     [btnRadio]="1" tabindex="0"  role="button">East</label>    
                                     
                                     <label 
-                                    class="btn btn-outline-primary mr-2" name="Entrance"
+                                    class="btn btn-outline-primary mr-2" name="MainEntrance"
                                     [btnRadio]="2" tabindex="0"  role="button">West</label>   
 
                                     <label 
-                                    class="btn btn-outline-primary mr-2" name="Entrance"
+                                    class="btn btn-outline-primary mr-2" name="MainEntrance"
                                     [btnRadio]="3" tabindex="0"  role="button">South</label>   
 
                                     <label 
-                                    class="btn btn-outline-primary mr-2" name="Entrance"
+                                    class="btn btn-outline-primary mr-2" name="MainEntrance"
                                     [btnRadio]="4" tabindex="0"  role="button">North</label>   
 
                                     </div>
@@ -184,7 +185,7 @@
                                     <input
                                     type="number"
                                     class="form-control"
-                                    name="Price"
+                                    name="BuiltArea"
                                     ngModel
                                     required>
                                     <div class="input-group-append mr-2">
@@ -197,7 +198,7 @@
                                     <input
                                     type="number"
                                     class="form-control"
-                                    name="Price"
+                                    name="CarpetArea"
                                     ngModel
                                     required>
                                     <div class="input-group-append">
@@ -209,7 +210,7 @@
                                     <label>Possession/Avaialble Date</label>
                             </div>
                             <div class="col-xs-12 col-12 col-md-4 form-group">
-                                <input type="text"
+                                <input type="text" name="Posession" ngModel
                                     class="form-control"
                                     bsDatepicker>
                             </div>
@@ -221,9 +222,7 @@
                                 class="form-control"
                                 name="Description"
                                 rows="8"
-                                ngModel
-                                required
-                                >
+                                ngModel>
                                 </textarea>
                             </div>
                         </div>
@@ -247,7 +246,7 @@
                                 <input
                                 type="number"
                                 class="form-control"
-                                name="Floor"
+                                name="FloorNo"
                                 ngModel
                                 required>
                                 <div class="input-group-append">
@@ -270,8 +269,7 @@
                             type="text"
                             class="form-control"
                             name="Address"
-                            ngModel
-                            required>                        
+                            ngModel required>                        
                         </div> 
                         <div class="form-group col-12">
                             <label for="Address">Locality</label>
@@ -279,8 +277,7 @@
                             type="text"
                             class="form-control"
                             name="Address2"
-                            ngModel
-                            required>                        
+                            ngModel>                        
                         </div>  
 
                         <div class="form-group col-12">
@@ -289,17 +286,17 @@
                             type="text"
                             class="form-control"
                             name="Address3"
-                            ngModel
-                            required>                        
+                            ngModel>                        
                         </div>      
 
                     </tab>
                     <tab heading="Photos">
                     </tab>
-                    <div class="form-group col-6">
-                        <button type="submit" class="btn btn-primary mr-2">Add Property</button> 
-                        <button type="button" class="btn btn-secondary">Cancel</button> 
+                    <div class="form-group col-12">
+                        <button type="submit" [disabled]="!addPropertyForm.valid" class="btn btn-primary btn-block">Continue</button> 
+                        <button type="button" class="btn btn-secondary btn-block">Cancel</button> 
                     </div>
+                    {{addPropertyForm.valid}}
                 </tabset>
             </div>
     </form>
