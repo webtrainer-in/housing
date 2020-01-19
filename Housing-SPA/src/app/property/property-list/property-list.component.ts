@@ -12,6 +12,7 @@ export class PropertyListComponent implements OnInit {
   public properties: Array<Property>;
   private newProperty: any;
   public allProperties: Array<Property>;
+  public List: string;
 
   constructor(
     private housingServices: HousingService,
@@ -22,6 +23,7 @@ export class PropertyListComponent implements OnInit {
   ngOnInit() {
 
     const propertyType = this.route.snapshot.params['SellRent'] ? 2 : 1;
+    this.List = 'List';
 
     this.housingServices.getAllPropertiesByType(propertyType)
     .subscribe(

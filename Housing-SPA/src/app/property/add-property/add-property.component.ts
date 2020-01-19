@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {HousingService} from '../../Services/housing.service';
 import { NgForm } from '@angular/forms';
 import { Property } from '../../model/property';
+import { TabsetComponent } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-add-property',
@@ -13,15 +14,15 @@ import { Property } from '../../model/property';
 export class AddPropertyComponent implements OnInit {
 
   @ViewChild('addPropertyForm', {static: true}) addPropertyForm: NgForm;
+  @ViewChild('formTabs', { static: true }) formTabs: TabsetComponent;
   public property =  new Property();
+  public tmpProp = new Property();
 
-  // Default radiobutton values
-  SR = '1';
-  Type = '';
-  BHK = '';
+  // Default  values
+  FormSubmitted = false;
   FurnishTypes = [
-    'Fully Furnished',
-    'Semi Furnished',
+    'Fully',
+    'Semi',
     'Unfurnished'
   ];
 
@@ -33,6 +34,18 @@ export class AddPropertyComponent implements OnInit {
     private alertify: AlertifyService ) { }
 
   ngOnInit() {
+    this.setDefaults();
+  }
+
+  setDefaults(): void {
+    this.tmpProp.SellRent = 1;
+  }
+
+  selectTab(tabId: number) {
+    this.formTabs.tabs[tabId].active = true;
+    console.log('abc');
+    console.log(tabId);
+    window.scroll(0, 0);
   }
 
   onAddProperty(data: Property): void  {
@@ -61,7 +74,7 @@ export class AddPropertyComponent implements OnInit {
     this.property.Price = data.Price;
     this.property.BuiltArea = data.BuiltArea;
     this.property.CarpetArea = data.CarpetArea;
-    this.property.FloorNo = data.FloorNo + ' of ' + data.TotalFloor
+    this.property.FloorNo = data.FloorNo + ' of ' + data.TotalFloor;
     this.property.Address = data.Address;
     this.property.Address2 = data.Address2;
     this.property.Address3 = data.Address3;

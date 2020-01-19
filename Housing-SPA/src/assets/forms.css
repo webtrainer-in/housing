@@ -1,0 +1,57 @@
+
+  .btn-group > label[ng-reflect-btn-radio] {
+    border-radius: 24px;
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    padding: 0 15px;
+    line-height: 30px;
+  }
+
+
+  .form-wrapper {
+    max-width: 30%;
+    min-width: 300px;
+    padding: 50px 30px 50px 30px;
+    margin: 50px auto;   
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
+  }
+  
+  .form-group {
+    position:relative;  
+  }
+  
+  .form-label {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    color: #999;
+    background-color: #fff;
+    z-index: 10;
+    transition: transform 150ms ease-out, left ease-out 150ms, top ease-out 150ms, font-size 150ms ease-out;
+  }
+  
+  .focused .form-label {
+    transform: translateY(-160%);
+    font-size: 16px;
+    color: black;
+    left: 15px;
+    transition: transform 150ms ease-out, left 150ms, font-size 150ms ease-out;
+  }
+  
+  .form-input {
+    position: relative;
+    transition: box-shadow 150ms ease-out;
+  }
+
+  .form-input:focus {
+    box-shadow: 0 2px 0 0 blue;
+  }
+
+
+  
+
+

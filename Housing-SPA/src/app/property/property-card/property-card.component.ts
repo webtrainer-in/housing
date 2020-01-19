@@ -10,6 +10,7 @@ import { HousingService } from 'src/app/Services/housing.service';
 })
 export class PropertyCardComponent implements OnInit {
   @Input () property: Property;
+  @Input () sourceControl: string;
   constructor(private router: Router, public housingService: HousingService) { }
 
   ngOnInit() {

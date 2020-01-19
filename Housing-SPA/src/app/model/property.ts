@@ -13,6 +13,7 @@ export class Property {
     Address3: string;
     City: string;
     FloorNo: string;
+    TotalFloor: string;
     NewOld: number;
     AOP: string;
     Bathrooms: number;
