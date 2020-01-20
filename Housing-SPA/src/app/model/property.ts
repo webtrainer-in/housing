@@ -14,15 +14,15 @@ export class Property {
     City: string;
     FloorNo: string;
     TotalFloor: string;
-    NewOld: number;
+    RTM: number;
     AOP: string;
     Bathrooms: number;
     MainEntrance: string;
+    Security?: number;
     Gated: number;
     Maintenance: number;
     Posession: string;
     PostedOn: string;
     Image?: string;
-    Security?: number;
     Description?: string;
 }
