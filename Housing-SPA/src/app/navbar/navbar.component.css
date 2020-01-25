@@ -1,0 +1,22 @@
+.free {
+    position: relative;
+    top: -10px;        
+    display: inline-block;
+    margin-left: 2px;
+    padding: 0 6px;
+    font-size: 10px;
+    line-height: 18px;
+    color: #fff;
+    background-color: #f22b68;
+}
+
+.nav-login-mobile {
+    position: fixed; 
+    right: 0px; 
+    top: 60px;
+}
+
+.nav-login-desktop {
+    position: fixed; 
+    right: 10px; 
+}

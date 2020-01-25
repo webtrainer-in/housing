@@ -11,22 +11,27 @@
 
   .form-group {
     position:relative;  
+    margin-top: 2rem;
+  }
+
+  .form-group p {
+    color: #999;
+    font-size: 14.5px;
   }
   
   .form-label {
-    position: absolute;
+    position: absolute;    
     left: 20px;
     top: 10px;
     color: #999;
-    background-color: #fff;
     z-index: 10;
     transition: transform 150ms ease-out, left ease-out 150ms, top ease-out 150ms, font-size 150ms ease-out;
   }
   
   .focused .form-label {
-    transform: translateY(-160%);
-    font-size: 16px;
-    color: black;
+    transform: translateY(-150%);
+    font-size: 14.25px;
+    color: #999;
     left: 15px;
     transition: transform 150ms ease-out, left 150ms, font-size 150ms ease-out;
   }
@@ -49,4 +54,7 @@
     color:red;
   }
   
+  .card-header > h1, .card-header > h2, .card-header > h3 {
+    color: white;
+  }
 

@@ -1,7 +1,7 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule} from '@angular/router';
 
@@ -21,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './Services/auth.service';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
 
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
   { path: '', component: PropertyListComponent},
   { path: 'property-list/:SellRent', component: PropertyListComponent, resolve: {prp: PropertyResolver}},
   { path: 'add-property', component: AddPropertyComponent },
-  { path: 'property-detail/:id', component: PropertyDetailComponent, resolve: {prp: PropertyDetailResolver}}
+  { path: 'property-detail/:id', component: PropertyDetailComponent, resolve: {prp: PropertyDetailResolver}},
+  { path: 'user-register', component: UserRegisterComponent }
 
 ];
 
@@ -45,12 +47,14 @@ const appRoutes: Routes = [
     PropertyListComponent,
     AddPropertyComponent,
     PropertyDetailComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgxGalleryModule,
     RouterModule.forRoot(appRoutes),

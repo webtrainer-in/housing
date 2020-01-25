@@ -16,13 +16,13 @@ export class Property {
     TotalFloor: string;
     RTM: number;
     AOP: string;
-    Bathrooms: number;
     MainEntrance: string;
     Security?: number;
     Gated: number;
     Maintenance: number;
-    Posession: string;
-    PostedOn: string;
+    Posession?: string;
     Image?: string;
     Description?: string;
+    PostedOn: string;
+    PostedBy: number;
 }

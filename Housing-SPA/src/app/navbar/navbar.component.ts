@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
 
   member: any = {};
   showNavbar = false;
+  loginbar = 'nav-login-desktop';
 
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
@@ -39,5 +40,10 @@ export class NavbarComponent implements OnInit {
 
   onToggleNavbar() {
     this.showNavbar = !this.showNavbar;
+    if (this.showNavbar) {
+      this.loginbar = 'nav-login-mobile';
+    } else {
+      this.loginbar = 'nav-login-desktop';
+    }
   }
 }

@@ -1,7 +1,7 @@
 <div class="row mb-5">
     <div class="col-sm-8">  
-    <div>
-        <h2>List your Property</h2>
+    <div class="card-header bg-primary p-2">
+        <h3>List your Property</h3>
     </div>
 
     <form #addPropertyForm="ngForm" (ngSubmit)="onAddProperty(addPropertyForm.value)">      
@@ -67,7 +67,7 @@
                                 </div>
                             </div>   
 
-                            <div class="form-group col-12 mt-5"
+                            <div class="form-group col-12"
                             [ngClass]="{'focused': tmpProp.Name || NameFocused}">
                                 <label for="Name" class="form-label">in Building/Society/Project</label>
                                 <input
@@ -81,7 +81,7 @@
                                 >
                             </div>
 
-                            <div class="form-group col-12 mt-5"
+                            <div class="form-group col-12"
                             [ngClass]="{'focused': tmpProp.City || CityFocused}">
                                 <label for="City" class="form-label">City</label>
                                 <input
@@ -218,7 +218,7 @@
                                     Please select floor number
                                 </div>                               
                         </div>
-                        <div class="form-group col-12 mt-5" 
+                        <div class="form-group col-12"  style="margin-top: 2rem;"
                         [ngClass]="{'focused': tmpProp.TotalFloor || TFFocused}">                                
                                 <label for="TotalFloor" class="form-label">Total Floors</label>
                                 <input
@@ -235,7 +235,7 @@
                                     Please select floor number
                                 </div>                               
                         </div>                        
-                        <div class="form-group col-12 mt-5"
+                        <div class="form-group col-12" style="margin-top: 2rem;"
                         [ngClass]="{'focused': tmpProp.Address || AddFocused}">
                             <label for="Address" class="form-label">Address</label>
                             <input 
@@ -253,7 +253,7 @@
                             </div>                                                                                
                         </div>  
 
-                        <div class="form-group col-12 mt-5"
+                        <div class="form-group col-12" style="margin-top: 2rem;"
                         [ngClass]="{'focused': tmpProp.Address3 || LMFocused}">
                             <label for="Address3" class="form-label">Landmark</label>
                             <input
@@ -370,7 +370,9 @@
         </div>    
 
 <div class="col-lg-4">
-    <h2>Your Property Preview</h2>
+    <div class="card-header bg-primary  p-2">
+        <h3>Your Property Preview</h3>
+    </div>
     <app-property-card [property]="tmpProp"></app-property-card>
 </div>  
 </div>
