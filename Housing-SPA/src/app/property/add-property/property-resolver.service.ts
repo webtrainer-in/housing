@@ -14,8 +14,7 @@ export class PropertyResolver implements Resolve<Property> {
 
     }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Property
-    {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Property {
         this.housingServices.newPropertySubject.subscribe(
         data => this.property = data);
         return this.property;

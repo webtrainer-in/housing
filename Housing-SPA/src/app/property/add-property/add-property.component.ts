@@ -36,10 +36,10 @@ export class AddPropertyComponent implements OnInit {
 
   ngOnInit() {
     // this.setDefaults();
-    // this.formTabs.tabs[1].disabled = true;
-    // this.formTabs.tabs[2].disabled = true;
-    // this.formTabs.tabs[3].disabled = true;
-    // this.formTabs.tabs[4].disabled = true;
+    this.formTabs.tabs[1].disabled = true;
+    this.formTabs.tabs[2].disabled = true;
+    this.formTabs.tabs[3].disabled = true;
+    this.formTabs.tabs[4].disabled = true;
   }
 
   setDefaults(): void {
@@ -65,7 +65,7 @@ export class AddPropertyComponent implements OnInit {
       this.fillProperty(data);
       this.housingService.addProperties(this.property);
       this.addPropertyForm.reset();
-      this.alertify.success('Property Successfully added and listed on the site');
+      this.alertify.success('Property Successfully listed on the site');
 
       // Redirect user to the page on the base of Sell and Rent option
       if (data.BasicInfo.SellRent ==+ '2') {

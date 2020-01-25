@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   member: any = {};
   showNavbar = false;
   loginbar = 'nav-login-desktop';
+  loggedinUserName: string;
 
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
@@ -20,11 +21,12 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogin(form: NgForm) {
-    if (this.authService.login(this.member)){
-      this.alertify.success('Logged in Successfully');
+    let user = this.authService.login(this.member);
+    if (user){
+      this.alertify.success('Successfully logged in');
       form.reset();
     } else {
-      this.alertify.error('User ID or password is wrong, you can use James as user and password any to login as guest');
+      this.alertify.error('User ID or password is wrong');
     }
   }
 
@@ -35,7 +37,8 @@ export class NavbarComponent implements OnInit {
 
   loggedin() {
     const token = localStorage.getItem('token');
-    return !!token;
+    this.loggedinUserName = token;
+    return token;
   }
 
   onToggleNavbar() {

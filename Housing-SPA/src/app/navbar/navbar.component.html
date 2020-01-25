@@ -25,6 +25,15 @@
           </li>
           
           <li class="nav-item">
+            <a               
+              class="nav-link " 
+              routerLinkActive="active" 
+              routerLink="/add-property">
+              List Property <span class="free">Free</span> 
+            </a>
+          </li>  
+          
+          <li *ngIf="!loggedin()" class="nav-item">
             <a 
               class="nav-link" 
               routerLinkActive="active" 
@@ -33,19 +42,11 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a               
-              class="nav-link " 
-              routerLinkActive="active" 
-              routerLink="/add-property">
-              List Property <span class="free">Free</span> 
-            </a>
-          </li>           
         </ul>
           <div [ngClass]="loginbar">
             <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
               <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
-                  Welcome James
+                  Welcome {{loggedinUserName }}
               </a>
               <div class="dropdown-menu" *dropdownMenu>
                   <a href="#" class="dropdown-item"><i class="far fa-user-circle"></i> My Profile</a>

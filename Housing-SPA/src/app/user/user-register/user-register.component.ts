@@ -1,6 +1,8 @@
 import { User } from './../../model/user';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms';
+import { AlertifyService } from 'src/app/Services/alertify.service';
+import { HousingService } from 'src/app/Services/housing.service';
 
 @Component({
   selector: 'app-user-register',
@@ -10,10 +12,12 @@ import {FormGroup, FormControl, Validators, AbstractControl} from '@angular/form
 export class UserRegisterComponent implements OnInit {
 
   registerationForm: FormGroup;
-  user = new User();
+  user = {};
   userSubmitted: boolean;
 
-  constructor() { }
+  constructor(
+    private alertify: AlertifyService,
+    private housingService: HousingService) { }
 
   ngOnInit() {
     this.registerationForm = new FormGroup({
@@ -22,13 +26,27 @@ export class UserRegisterComponent implements OnInit {
       password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl(null, Validators.required),
       mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)])
-    },this.passwordMatchingValidator);
+    }, this.passwordMatchingValidator);
   }
-  onSubmit() {
-    this.userSubmitted = true;
-    console.log ('Here is submit form');
-    console.log (this.registerationForm);
 
+  onSubmit() {  
+    this.userSubmitted = true;
+    if (this.registerationForm.valid) {
+    this.fillUser();
+    // this.user = Object.assign(this.user, this.registerationForm.value);
+    this.housingService.addUser(this.user);
+    this.alertify.success('Congratulation, you are now registered and can add your property for FREE');
+    this.registerationForm.reset();
+    } else {
+      this.alertify.error('Form is not valid, please check the errors')
+    }
+  }
+
+  fillUser() {
+    this.user.name = this.username.value;
+    this.user.email = this.email.value;
+    this.user.password = this.password.value;
+    this.user.mobile = this.mobile.value;
   }
 
   passwordMatchingValidator(fg: FormGroup) {
