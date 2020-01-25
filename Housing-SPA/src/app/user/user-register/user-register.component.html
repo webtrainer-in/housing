@@ -15,6 +15,8 @@
                 (blur)="NameFocused=0"                                               
                 type="text"
                 class="form-control form-input"
+                [ngClass]="{'form-submitted': userSubmitted}"
+                ngClass
                 name="name"                
                >   
                <!-- <div *ngIf="(!registerationForm.get('username').valid && 
@@ -38,14 +40,15 @@
                 (blur)="EmailFocused=0"
                 type="text"
                 class="form-control form-input"
+                [ngClass]="{'form-submitted': userSubmitted}"
                 name="email"                
                 >
                 
                 <div *ngIf="(!email.valid && (email.touched || userSubmitted))" class="error-block">
-                    <span *ngIf="email.errors['required']">
+                    <span *ngIf="email.hasError('required')">
                         Please provide email
                     </span>
-                    <span *ngIf="email.errors['email']">
+                    <span *ngIf="email.hasError('email')">
                         Please provide a valid email
                     </span>
                 </div>   
@@ -62,6 +65,7 @@
                 (blur)="PassFocused=0"                                               
                 type="password"
                 class="form-control form-input"
+                [ngClass]="{'form-submitted': userSubmitted}"
                 name="password"
                >   
                <div *ngIf="(!password.valid && (password.touched || userSubmitted))" class="error-block">
@@ -87,12 +91,16 @@
                 (blur)="CPassFocused=0"                                               
                 type="password"
                 class="form-control form-input"
+                [ngClass]="{'form-submitted': userSubmitted}"
                 name="cpassword"
                >   
                <div *ngIf="(!confirmPassword.valid && (confirmPassword.touched || userSubmitted))" class="error-block">
                     <span *ngIf="confirmPassword.errors['required']">
                         Please confirm password
                     </span>
+                </div>
+                <div *ngIf="(registerationForm.hasError('notmatched') && confirmPassword.valid)" class="error-block">
+                    Password not matched
                 </div>
             </div> 
             </div>
@@ -106,6 +114,7 @@
                 (blur)="MobileFocused=0"                                               
                 type="number"
                 class="form-control form-input"
+                [ngClass]="{'form-submitted': userSubmitted}"
                 name="mobile"
                >   
                <div *ngIf="(!mobile.valid && (mobile.touched || userSubmitted))" class="error-block">

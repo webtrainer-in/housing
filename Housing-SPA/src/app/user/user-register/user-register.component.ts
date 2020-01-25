@@ -22,13 +22,18 @@ export class UserRegisterComponent implements OnInit {
       password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl(null, Validators.required),
       mobile: new FormControl(null, [Validators.required, Validators.maxLength(10)])
-    });
+    },this.passwordMatchingValidator);
   }
   onSubmit() {
     this.userSubmitted = true;
     console.log ('Here is submit form');
     console.log (this.registerationForm);
 
+  }
+
+  passwordMatchingValidator(fg: FormGroup) {
+    return fg.get('password').value === fg.get('confirmPassword').value ? null :
+    {notmatched: true};
   }
 
   // define getter methods for all form fields
