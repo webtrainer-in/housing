@@ -13,6 +13,8 @@ export class PropertyListComponent implements OnInit {
   private newProperty: any;
   public allProperties: Array<Property>;
   public List: string;
+  City = '';
+  SearchCity = '';
 
   constructor(
     private housingServices: HousingService,
@@ -73,6 +75,17 @@ export class PropertyListComponent implements OnInit {
         localStorage.setItem('Properties', JSON.stringify(this.allProperties));
         localStorage.removeItem('newProp');
        });
+  }
+
+  onSearchClick()
+  {
+    this.SearchCity = this.City;    
+  }
+
+  onRemovehClick()
+  {
+    this.SearchCity = '';
+    this.City = '' ;
   }
   }
 
