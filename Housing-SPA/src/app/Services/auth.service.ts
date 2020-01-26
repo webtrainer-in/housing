@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
   login(member: any) {
     let user = this.getUser(member);
     if (user) {
-      localStorage.setItem('token', user.username);
+      localStorage.setItem('token', user.userName);
     }
     return user;
   }
@@ -20,14 +21,11 @@ export class AuthService {
   }
 
   // Get single user
-  getUser(user: string) {
+  getUser(user: User) {
         let UsersArray = [];
         if (localStorage.getItem('Users')) {
           UsersArray = JSON.parse(localStorage.getItem('Users'));
         }
-        console.log ('heheheh');
-        console.log(user);
-        console.log(UsersArray.find(p => p.username === user.userName && p.userPassword === user.password));
         return UsersArray.find(p => p.username === user.userName && p.userPassword === user.password );
   }
 

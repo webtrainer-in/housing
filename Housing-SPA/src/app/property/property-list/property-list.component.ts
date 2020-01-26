@@ -15,6 +15,12 @@ export class PropertyListComponent implements OnInit {
   public List: string;
   City = '';
   SearchCity = '';
+  Sortby = [
+    'City',
+    'Price'
+  ];
+  SortbyParam = '';
+  SortDirection = 'asc';
 
   constructor(
     private housingServices: HousingService,
@@ -79,13 +85,19 @@ export class PropertyListComponent implements OnInit {
 
   onSearchClick()
   {
-    this.SearchCity = this.City;    
+    this.SearchCity = this.City;
   }
 
-  onRemovehClick()
-  {
+  onRemovehClick() {
     this.SearchCity = '';
     this.City = '' ;
+  }
+  onSortDirection() {
+    if (this.SortDirection === 'desc'){
+      this.SortDirection = 'asc';
+    } else {
+      this.SortDirection = 'desc';
+    }
   }
   }
 

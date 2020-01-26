@@ -1,23 +1,43 @@
-<div class="row mb-3  mr-0 p-3" style="border:1px solid gray">
-    <div style="position: relative; top: -30px; left: 1px; background-color: white; padding: 0px 10px;">
-        Filters
-    </div>  
+<div class="row mb-3  mr-0 p-0" style="border:1px solid gray">
+    <div class="col-6">
+        <div>
+            <label style="position: relative; top: -10px; left: 1px; background-color: white; padding: 0px 10px;">Filters</label> 
+        </div>  
+    
+        <div class="form-group col-12  p-0 mt-0">
+            <label for="city">City : &nbsp;</label>    
+            <input
+            id="city"
+            type="text"    
+            name="City"
+            [(ngModel)]="City"
+            > 
+            <button style="border: 1px solid grey;" [ngStyle]="{'background-color': SearchCity==='' ? 'white' : 'blue' }"  type="button" (click) = "onSearchClick()" ><i class="fas fa-filter"></i></button>           
+            <button  type="button" (click) = "onRemovehClick()" >Remove Filter</button>
+        </div>   
 
-    <div class="form-group col-12  p-0 mt-0">
-        <label for="city">City : &nbsp;</label>    
-        <input
-        id="city"
-        type="text"    
-        name="City"
-        [(ngModel)]="City"
-        > 
-        <button type="button" (click) = "onSearchClick()" >Filter</button>           
-        <button type="button" (click) = "onRemovehClick()" >Remove Filter</button>
-    </div>   
+    </div>
+    <div class="col-6" style="border-left: 1px solid gray">
+        <div>
+            <label style="position: relative; top: -10px; left: 1px; background-color: white; padding: 0px 10px;">Sorting</label> 
+        </div>  
+    
+        <div class="form-group col-12  p-0 mt-0">
+            <label for="city">Sorty by : &nbsp;</label>   
+            <select [(ngModel)]="SortbyParam">
+                <option *ngFor="let item of Sortby" [value]="item">{{item}}</option>
+            </select>             
+            <button type="button" (click) = "onSortDirection()" >                
+                <i *ngIf="SortDirection==='asc'" class="fas fa-sort-alpha-down"></i>
+                <i *ngIf="SortDirection==='desc'" class="fas fa-sort-alpha-up"></i>
+            </button>           
+        </div>   
+    </div>
+
 </div> 
 
 <div class="row">
-<div *ngFor="let property of properties |filter:SearchCity:'City'" 
+<div *ngFor="let property of properties |filter:SearchCity:'City' |sort:[SortbyParam,SortDirection]" 
 class="col-lg-4 col-sm-6 pl-0">    
 <div class="shadow-lg p-3 mb-3 bg-white rounded">
     <app-property-card [property]="property" [sourceControl]="List"></app-property-card>

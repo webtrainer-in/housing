@@ -12,7 +12,7 @@ import { HousingService } from 'src/app/Services/housing.service';
 export class UserRegisterComponent implements OnInit {
 
   registerationForm: FormGroup;
-  user = {};
+  user = new User();
   userSubmitted: boolean;
 
   constructor(
@@ -43,7 +43,7 @@ export class UserRegisterComponent implements OnInit {
   }
 
   fillUser() {
-    this.user.name = this.username.value;
+    this.user.userName = this.username.value;
     this.user.email = this.email.value;
     this.user.password = this.password.value;
     this.user.mobile = this.mobile.value;

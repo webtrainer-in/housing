@@ -22,7 +22,8 @@ import { AuthService } from './Services/auth.service';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import { FilterPipe } from './shared/filter.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     PropertyDetailComponent,
     NavbarComponent,
     UserRegisterComponent,
-    FilterPipe
+    FilterPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
