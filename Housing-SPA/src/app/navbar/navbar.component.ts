@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Services/auth.service';
 import { NgForm } from '@angular/forms';
 import { AlertifyService } from '../Services/alertify.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ import { AlertifyService } from '../Services/alertify.service';
 })
 export class NavbarComponent implements OnInit {
 
-  member: any = {};
+  member = new User();
   showNavbar = false;
   loginbar = 'nav-login-desktop';
   loggedinUserName: string;

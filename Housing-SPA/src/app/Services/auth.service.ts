@@ -26,7 +26,7 @@ export class AuthService {
         if (localStorage.getItem('Users')) {
           UsersArray = JSON.parse(localStorage.getItem('Users'));
         }
-        return UsersArray.find(p => p.username === user.userName && p.userPassword === user.password );
+        return UsersArray.find(p => p.userName === user.userName && p.userPassword === user.password );
   }
 
 }
