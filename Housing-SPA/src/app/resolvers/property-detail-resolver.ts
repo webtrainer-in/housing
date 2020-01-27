@@ -1,6 +1,6 @@
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { HousingService } from '../Services/housing.service';
+import { HousingService } from '../services/housing.service';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 

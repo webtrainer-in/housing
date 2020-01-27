@@ -9,7 +9,7 @@ export class AuthService {
     constructor() { }
 
   login(member: any) {
-    let user = this.getUser(member);
+    const user = this.getUser(member);
     if (user) {
       localStorage.setItem('token', user.userName);
     }
@@ -21,12 +21,12 @@ export class AuthService {
   }
 
   // Get single user
-  getUser(user: User) {
+  getUser(user: any) {
         let UsersArray = [];
         if (localStorage.getItem('Users')) {
           UsersArray = JSON.parse(localStorage.getItem('Users'));
         }
-        return UsersArray.find(p => p.userName === user.userName && p.userPassword === user.password );
+        return UsersArray.find(p => p.userName === user.userName && p.password === user.userPassword );
   }
 
 }

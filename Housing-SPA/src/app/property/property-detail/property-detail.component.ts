@@ -1,6 +1,6 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HousingService } from 'src/app/Services/housing.service';
+import { HousingService } from 'src/app/services/housing.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 
 @Component({

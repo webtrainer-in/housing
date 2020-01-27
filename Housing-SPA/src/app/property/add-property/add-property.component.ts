@@ -1,7 +1,7 @@
-import { AlertifyService } from './../../Services/alertify.service';
+import { AlertifyService } from './../../services/alertify.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import {HousingService} from '../../Services/housing.service';
+import {HousingService} from '../../services/housing.service';
 import { NgForm, NgModelGroup } from '@angular/forms';
 import { Property } from '../../model/property';
 import { TabsetComponent } from 'ngx-bootstrap';

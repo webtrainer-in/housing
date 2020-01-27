@@ -31,17 +31,7 @@
               routerLink="/add-property">
               List Property <span class="free">Free</span> 
             </a>
-          </li>  
-          
-          <li *ngIf="!loggedin()" class="nav-item">
-            <a 
-              class="nav-link" 
-              routerLinkActive="active" 
-              routerLink="/user-register">
-              Register
-            </a>
-          </li>
-
+          </li> 
         </ul>
           <div [ngClass]="loginbar">
             <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
@@ -49,26 +39,37 @@
                   Welcome {{loggedinUserName }}
               </a>
               <div class="dropdown-menu" *dropdownMenu>
-                  <a href="#" class="dropdown-item"><i class="far fa-user-circle"></i> My Profile</a>
+                  <a href="#" 
+                  class="dropdown-item"
+                  routerLinkActive="active" 
+                  routerLink="/user/dashboard">
+                  <i class="fas fa-tachometer-alt"></i> View Dashboard</a>
+                  <a href="#" class="dropdown-item"><i class="far fa-user-circle"></i> My Profile</a>                  
                   <a href="#" class="dropdown-item"><i class="fas fa-key"></i> Change Password</a>
                   <a (click)='onLogout()' class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
               </div>
             </div>
           
-          <form *ngIf="!loggedin()" #loginForm="ngForm" class="navbar-right" (ngSubmit)="onLogin(loginForm)">
+          <div *ngIf="!loggedin()" class="navbar-right" (ngSubmit)="onLogin(loginForm)">
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item mr-2">
-                    <input class="form-control" name="userName" [(ngModel)]="member.userName" required type="text" placeholder="User Name">
+                <li *ngIf="!loggedin()" class="nav-item">
+                  <a 
+                    class="nav-link" 
+                    routerLinkActive="active" 
+                    routerLink="/user-register">
+                    Register
+                  </a>
                 </li>
-                <li class="nav-item mr-2">
-                    <input class="form-control" name="userPassword" [(ngModel)]="member.userPassword" required type="password" placeholder="Password">
-                </li>
-    
-                <li class="nav-item active">
-                    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary navbar-btn nav-link">Login</button>
+                <li *ngIf="!loggedin()" class="nav-item">
+                  <a 
+                    class="nav-link" 
+                    routerLinkActive="active" 
+                    routerLink="/user/login">
+                    Login
+                  </a>
                 </li>
             </ul>
-          </form>
+          </div>
         </div>
       </div>      
 </nav>

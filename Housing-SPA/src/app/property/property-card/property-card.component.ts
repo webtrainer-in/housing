@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
-import { HousingService } from 'src/app/Services/housing.service';
+import { HousingService } from 'src/app/services/housing.service';
 
 @Component({
   selector: 'app-property-card',

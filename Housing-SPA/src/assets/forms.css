@@ -58,6 +58,12 @@
     color: white;
   }
 
+  .card-header {
+    height: 42px;
+    padding: 4px 10px !important;    
+    background-color: #007bff !important;
+  }
+
   .form-control.ng-invalid.ng-touched,
   .form-control.ng-invalid.form-submitted
   {

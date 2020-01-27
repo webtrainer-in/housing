@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../Services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { NgForm } from '@angular/forms';
-import { AlertifyService } from '../Services/alertify.service';
+import { AlertifyService } from '../services/alertify.service';
 import { User } from '../model/user';
 
 @Component({
