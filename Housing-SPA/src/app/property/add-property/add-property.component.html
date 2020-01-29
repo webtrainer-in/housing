@@ -1,5 +1,5 @@
 <div class="row mb-5">
-    <div class="col-sm-8">  
+    <div class="col-sm-8 shadow-lg p-0 bg-white">  
     <div class="card-header">
         <h3>List your Property</h3>
     </div>
@@ -367,13 +367,15 @@
                 </tabset>
             </div>
         </form>
-        </div>    
+    </div>    
 
-<div class="col-lg-4">
-    <div class="card-header">
-        <h3>Your Property Preview</h3>
-    </div>
-    <app-property-card [property]="tmpProp"></app-property-card>
-</div>  
+    <div class="col-lg-4">
+        <div class="card-header">
+            <h3>Your Property Preview</h3>
+        </div>
+        <div class="shadow-lg p-3 bg-white">
+            <app-property-card [property]="tmpProp"></app-property-card>
+        </div>
+    </div>  
 </div>
 

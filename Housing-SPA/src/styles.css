@@ -1,7 +1,9 @@
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.css';
 /* You can add global styles to this file, and also import other style files */
-
+body {
+  background-color: whitesmoke;
+}
 
 h1{
     color:#0069d9;
@@ -13,6 +15,7 @@ h1{
     padding: 10px;
     border-radius: 4px;
     min-height: 600px;
+    background-color: white;
   }
   
   .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {

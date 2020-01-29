@@ -38,13 +38,12 @@
 </div> 
 
 <div class="row">
-<div *ngFor="let property of properties |filter:SearchCity:'City' |sort:[SortbyParam,SortDirection]" 
-class="col-lg-4 col-sm-6">    
-<div class="shadow-lg p-3 mb-3 bg-white rounded">
-    <app-property-card [property]="property" [sourceControl]="List"></app-property-card>
-</div>
-</div>
-
+    <div *ngFor="let property of properties |filter:SearchCity:'City' |sort:[SortbyParam,SortDirection]" 
+    class="col-lg-4 col-sm-6">    
+    <div class="shadow-lg p-3 mb-3 bg-white rounded">
+        <app-property-card [property]="property" [sourceControl]="List"></app-property-card>
+    </div>
+    </div>
 </div>                       
     
     
