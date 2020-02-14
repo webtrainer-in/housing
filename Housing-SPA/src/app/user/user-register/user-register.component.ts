@@ -14,6 +14,11 @@ export class UserRegisterComponent implements OnInit {
   registerationForm: FormGroup;
   user = new User();
   userSubmitted: boolean;
+  NameFocused: number;
+  EmailFocused: number;
+  PassFocused: number;
+  CPassFocused: number;
+  MobileFocused: number;
 
   constructor(
     private alertify: AlertifyService,
@@ -45,7 +50,7 @@ export class UserRegisterComponent implements OnInit {
   fillUser() {
     this.user.userName = this.username.value;
     this.user.email = this.email.value;
-    this.user.password = this.password.value;
+    this.user.userPassword = this.password.value;
     this.user.mobile = this.mobile.value;
   }
 

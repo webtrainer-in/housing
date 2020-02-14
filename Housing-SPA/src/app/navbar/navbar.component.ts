@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   showNavbar = false;
   loginbar = 'nav-login-desktop';
   loggedinUserName: string;
+  loginForm: NgForm;
 
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 

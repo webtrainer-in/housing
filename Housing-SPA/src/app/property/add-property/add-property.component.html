@@ -13,7 +13,7 @@
                                 <p>I want to</p>
                                 <div class="btn-group" required btnRadioGroup 
                                 #SellRent="ngModel"  
-                                name="SellRent" [(ngModel)]="tmpProp.SellRent" >
+                                name="SellRent" [(ngModel)]="SellRentFlag" >
                                     <label class="btn btn-outline-primary mr-2" name="SellRent"
                                             btnRadio=1 tabindex="0" role="button">Sell</label>
             
@@ -108,8 +108,8 @@
                         <div class="form-group col-12 mt-4"
                         [ngClass]="{'focused': tmpProp.Price || PriceFocused}">
                             <label for="Price" class="form-label">
-                                <span *ngIf="tmpProp.SellRent=='1'">Price (in USD)</span>
-                                <span *ngIf="tmpProp.SellRent=='2'">Rent (in USD)</span>
+                                <span *ngIf="SellRentFlag=='1'">Price (in USD)</span>
+                                <span *ngIf="SellRentFlag=='2'">Rent (in USD)</span>
                             </label>
                             <input 
                             id="Price"                            
@@ -126,7 +126,7 @@
                             </div>
                         </div>
 
-                        <div *ngIf="tmpProp.SellRent=='2'">
+                        <div *ngIf="SellRentFlag=='2'">
                             <div class="form-group col-12 mt-5"
                             [ngClass]="{'focused': tmpProp.Security || SecurityFocused}"> 
                             <label for="Security" class="form-label">Security (in USD)</label>
@@ -316,7 +316,7 @@
                     
                         <div class="form-group col-12">
                             <p>Main Entrance</p>
-                            <div class="btn-group" btnRadioGroup name="MainEntrance" [(ngModel)]="tmpProp.Entrance">
+                            <div class="btn-group" btnRadioGroup name="MainEntrance" [(ngModel)]="tmpProp.MainEntrance">
                                 <label 
                                 class="btn btn-outline-primary mr-2" name="MainEntrance"
                                 [btnRadio]="1" tabindex="0"  role="button">East</label>    
@@ -350,8 +350,8 @@
                             </textarea>                    
                         </div>                     
 
-                        <button type="button" class="btn btn-primary btn-block" (click)="selectTab(4,1)">Next</button>
-                        <button type="button" class="btn btn-primary btn-block" (click)="selectTab(2,1)">Back</button>
+                        <button type="button" class="btn btn-primary btn-block" (click)="selectTab(4,true)">Next</button>
+                        <button type="button" class="btn btn-primary btn-block" (click)="selectTab(2,true)">Back</button>
                     </tab>
                     <tab heading="Photos">
                         <div class="form-group col-12">
@@ -361,7 +361,7 @@
                             </div>                            
                             <button type="submit" [disabled]="!addPropertyForm.valid" class="btn btn-primary btn-block">Save</button> 
                             <button type="reset" class="btn btn-secondary btn-block">Cancel</button> 
-                            <button type="button" class="btn btn-primary btn-block" (click)="selectTab(3,1)">Back</button>
+                            <button type="button" class="btn btn-primary btn-block" (click)="selectTab(3,true)">Back</button>
                         </div>
                     </tab>
                 </tabset>

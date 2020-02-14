@@ -19,6 +19,22 @@ export class AddPropertyComponent implements OnInit {
   public tmpProp = new Property();
   public nextClicked = false;
 
+  // Form level variables
+  PriceFocused: number;
+  BAFocused: number;
+  CAFocused: number;
+  TFFocused: number;
+  AddFocused: number;
+  LMFocused: number;
+  ACFocused: number;
+  NameFocused: number;
+  CityFocused: number;
+  MaintFocused: number;
+  SecurityFocused: number;
+  TFocused: number;
+  SellRentFlag: string;
+
+
   // Default  values
   FormSubmitted = false;
   FurnishTypes = [
@@ -116,6 +132,5 @@ export class AddPropertyComponent implements OnInit {
       return 101;
     }
   }
-
 }
 
