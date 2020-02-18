@@ -1,7 +1,8 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from 'src/app/services/housing.service';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
+import { Property } from './../../model/property';
 
 @Component({
   selector: 'app-property-detail',
@@ -22,7 +23,7 @@ export class PropertyDetailComponent implements OnInit {
     this.galleryOptions = [
       {
           width: '100%',
-          height:'510px',
+          height: '510px',
           thumbnailsColumns: 4,
           imageAnimation: NgxGalleryAnimation.Slide,
           preview: true
@@ -56,8 +57,6 @@ export class PropertyDetailComponent implements OnInit {
         medium: 'assets/images/internal-5.jpg',
         big: 'assets/images/internal-5.jpg'
       },
-
-
     ];
 
     this.route.data.subscribe(

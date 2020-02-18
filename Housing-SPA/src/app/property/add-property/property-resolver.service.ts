@@ -2,6 +2,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { HousingService } from '../../services/housing.service';
 import { Injectable } from '@angular/core';
+import { Property } from './../../model/property';
 
 
 

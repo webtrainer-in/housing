@@ -1,3 +1,4 @@
+import { Property } from './../model/property';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { HousingService } from '../services/housing.service';

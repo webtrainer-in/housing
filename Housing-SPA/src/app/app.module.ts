@@ -1,6 +1,6 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule} from '@angular/router';
@@ -16,7 +16,8 @@ import { PropertyResolver } from './property/add-property/property-resolver.serv
 import { PropertyDetailResolver } from './resolvers/property-detail-resolver';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import {NgxGalleryModule} from 'ngx-gallery';
+// import {NgxGalleryModule} from 'ngx-gallery';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery'
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
@@ -27,6 +28,7 @@ import { SortPipe } from './pipes/sort.pipe';
 import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 
+@Injectable()
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
       pinch: { enable: false },
@@ -70,7 +72,7 @@ const appRoutes: Routes = [
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     ButtonsModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    // BsDatepickerModule.forRoot()
   ],
   providers: [
     HousingService, PropertyResolver, PropertyDetailResolver, AuthService,
